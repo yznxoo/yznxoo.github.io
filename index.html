@@ -90,6 +90,23 @@
   .help .q{margin-top:14px;font-size:13px;font-weight:400;border:1px solid rgba(255,255,255,.28);border-radius:10px;padding:12px 13px;line-height:1.6;}
   .help .q b{color:var(--green);font-weight:800;}
 
+
+  /* 대상 매장 섹션 */
+  .stores{margin-top:28px;background:var(--black);color:var(--white);padding:28px 16px 30px;}
+  .stores .cap{display:flex;justify-content:center;margin-bottom:14px;}
+  .stores .cap span{border:1.5px solid rgba(255,255,255,.5);border-radius:20px;padding:6px 16px;font-size:13px;font-weight:800;}
+  .stores h3{text-align:center;font-size:20px;font-weight:900;letter-spacing:-.02em;}
+  .stores .sub{text-align:center;font-size:12.5px;color:rgba(255,255,255,.65);margin-top:6px;font-weight:400;}
+  .cat{margin-top:24px;}
+  .cat .clabel{font-size:13px;font-weight:800;color:var(--green);margin:0 4px 12px;}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px 10px;}
+  .brand{display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .brand .badge{width:74px;height:74px;border-radius:50%;background:var(--white);overflow:hidden;display:flex;align-items:center;justify-content:center;}
+  .brand .badge img{width:100%;height:100%;object-fit:cover;}
+  .brand .badge.empty{background:rgba(255,255,255,.08);border:1px dashed rgba(255,255,255,.3);}
+  .brand .badge.empty span{font-size:10.5px;color:rgba(255,255,255,.5);font-weight:700;text-align:center;padding:0 6px;line-height:1.3;}
+  .brand .bn{font-size:12px;font-weight:700;text-align:center;line-height:1.3;word-break:keep-all;}
+
   footer{text-align:center;padding:28px 16px 36px;color:var(--soft);font-size:11.5px;font-weight:400;}
   footer .tag{font-weight:800;color:var(--black);}
 
@@ -100,14 +117,14 @@
 <div class="wrap">
 
   <header>
-    <div class="kicker">광화문D타워 · NAVER PAY</div>
+    <div class="kicker">NAVER PAY · 광화문D타워</div>
     <h1>네이버페이 머니·포인트로 결제하고 10% 적립받기</h1>
-    <p>광화문D타워 내 네이버 커넥트 매장에서<br>네이버페이 <b>머니·포인트로 결제</b>하면 결제금액의 10%를 네이버 포인트로 적립해 드려요.</p>
+    <p>광화문D타워 내 네이버 커넥트 매장에서 네이버페이 <b>머니·포인트로 결제</b>하면 결제금액의 10%를 네이버 포인트로 적립해 드려요.</p>
   </header>
 
   <div class="warn">
     <b><span>！</span> ‘네이버페이 카드’로 결제하면 적립되지 않아요</b>
-    <p>적립은 <b>머니·포인트로 결제</b>할 때만 돼요.<br>결제 전 결제 수단을 확인해 주세요.</p>
+    <p>적립은 <b>머니·포인트로 결제</b>할 때만 됩니다. 결제 전 결제 수단을 확인해 주세요.</p>
   </div>
 
   <div class="benefit">
@@ -119,7 +136,7 @@
   <!-- 섹션 0: 시작하기 -->
   <section>
     <div class="sec-head"><div class="sec-num zero">0</div><h2>어떤 앱으로 시작할까요?</h2></div>
-    <p class="pick">네이버페이 결제는 <b>네이버페이 앱</b>이나 <b>네이버 앱</b> 어느 쪽으로도 할 수 있어요. 쓰시는 앱을 골라 시작하면 돼요.<br>뒷부분(계좌 등록)은 두 방법이 똑같아요.</p>
+    <p class="pick">네이버페이 결제는 <b>네이버페이 앱</b>이나 <b>네이버 앱</b> 어느 쪽으로도 할 수 있어요. 쓰시는 앱을 골라 시작하면 돼요. 뒷부분(계좌 등록)은 두 방법이 똑같아요.</p>
 
     <details class="acc">
       <summary><span class="app">P</span>네이버페이 앱으로 시작<span class="chev">▼</span></summary>
@@ -129,7 +146,7 @@
             <div class="slide">
               <div class="num"><span class="b">1</span>네이버페이 앱</div>
               <div class="t">앱 열고 잔액(금액) 누르기</div>
-              <div class="d">앱을 열면 위쪽에 <b>‘계좌 연결 필요’</b>가 떠요.<br>포인트·머니의 <b>금액(잔액)</b>이 적힌 곳을 눌러요.</div>
+              <div class="d">앱을 열면 위쪽에 <b>‘계좌 연결 필요’</b>가 떠요. 포인트·머니의 <b>금액(잔액)</b>이 적힌 곳을 눌러요.</div>
               <div class="shot"><img src="signup-01.jpg" alt="네이버페이 앱 홈에서 잔액 누르기"></div>
             </div>
             <div class="slide">
@@ -189,7 +206,7 @@
   <!-- 섹션 1: 계좌 등록 (공통) -->
   <section>
     <div class="sec-head"><div class="sec-num">1</div><h2>결제 계좌 등록하기</h2></div>
-    <p class="sec-desc">계좌는 한 번만 등록하면 돼요.<br>옆으로 넘기면 순서대로 볼 수 있어요.</p>
+    <p class="sec-desc">계좌는 한 번만 등록하면 다음부터 바로 결제돼요. 옆으로 넘기면 순서대로 볼 수 있어요.</p>
 
     <div class="carousel" data-car="signup">
       <div class="track">
@@ -202,7 +219,7 @@
         <div class="slide">
           <div class="num"><span class="b">2</span>계좌 등록</div>
           <div class="t">은행 선택</div>
-          <div class="d">목록에서 <b>내 계좌의 은행</b>을 선택해요.<br>본인 명의 계좌만 연결돼요.</div>
+          <div class="d">목록에서 <b>내 계좌의 은행</b>을 선택해요. 본인 명의 계좌만 연결돼요.</div>
           <div class="shot"><img src="signup-04.jpg" alt="은행 선택"></div>
         </div>
         <div class="slide">
@@ -232,7 +249,7 @@
         <div class="slide">
           <div class="num"><span class="b">7</span>계좌 등록</div>
           <div class="t">1원 확인 → 등록 완료</div>
-          <div class="d">계좌에 <b>1원</b>이 들어와요.<br>입금자명 ‘N + 소문자 4글자’에서 그 4글자를 입력하면 완료!</div>
+          <div class="d">계좌에 <b>1원</b>이 들어와요. 입금자명 ‘N + 소문자 4글자’에서 그 4글자를 입력하면 완료!</div>
           <div class="shot"><img src="signup-09.jpg" alt="1원 입금 확인"></div>
         </div>
       </div>
@@ -281,7 +298,7 @@
         <div class="slide">
           <div class="num"><span class="b">5</span>머니 충전</div>
           <div class="t">충전 완료 · 준비 끝!</div>
-          <div class="d"><b>충전완료</b>가 뜨면 끝!<br>계산대에서 <b>머니로 결제</b>하면 10% 적립돼요.</div>
+          <div class="d"><b>충전완료</b>가 뜨면 끝! 계산대에서 <b>머니로 결제</b>하면 10% 적립돼요.</div>
           <div class="shot"><img src="charge-05.jpg" alt="충전 완료"></div>
         </div>
       </div>
@@ -296,8 +313,55 @@
 
   <div class="help">
     <h3>결제할 때 이것만 기억하세요</h3>
-    <p>계산대에서 “네이버페이로 결제할게요”라고 말한 뒤,<br>결제 수단을 <b>머니 또는 포인트</b>로 선택하면 자동으로 10% 적립돼요.</p>
-    <div class="q"><b>Q.</b> 카드로 결제하면요?<br>→ 네이버페이 <b>카드</b> 결제는 적립 대상이 아니에요.<br>꼭 머니·포인트로 결제해 주세요.</div>
+    <p>계산대에서 “네이버페이로 결제할게요”라고 말한 뒤, 결제 수단을 <b>머니 또는 포인트</b>로 선택하면 자동으로 10% 적립됩니다.</p>
+    <div class="q"><b>Q.</b> 카드로 결제하면요?<br>→ 네이버페이 <b>카드</b> 결제는 적립 대상이 아니에요. 꼭 머니·포인트로 결제해 주세요.</div>
+  </div>
+
+
+  <div class="stores">
+    <div class="cap"><span>대상 매장</span></div>
+    <h3>광화문D타워 25개 브랜드</h3>
+    <div class="sub">네이버 커넥트 설치 매장에서 머니·포인트로 결제하세요</div>
+    <div class="cat">
+      <div class="clabel">다이닝</div>
+      <div class="grid">
+        <div class="brand"><div class="badge"><img src="logo-gocheongdam.jpg" alt="고청담"></div><div class="bn">고청담</div></div>
+        <div class="brand"><div class="badge"><img src="logo-ghmseokgalbi.jpg" alt="광화문석갈비"></div><div class="bn">광화문석갈비</div></div>
+        <div class="brand"><div class="badge"><img src="logo-drrobin.jpg" alt="닥터로빈"></div><div class="bn">닥터로빈</div></div>
+        <div class="brand"><div class="badge empty"><span>로고<br>준비중</span></div><div class="bn">덕후선생</div></div>
+        <div class="brand"><div class="badge empty"><span>로고<br>준비중</span></div><div class="bn">멜팅샵X치즈룸</div></div>
+        <div class="brand"><div class="badge"><img src="logo-brooklyn.jpg" alt="브루클린더버거조인트"></div><div class="bn">브루클린더버거조인트</div></div>
+        <div class="brand"><div class="badge"><img src="logo-yamaya.jpg" alt="야마야"></div><div class="bn">야마야</div></div>
+        <div class="brand"><div class="badge"><img src="logo-ontheborder.jpg" alt="온더보더"></div><div class="bn">온더보더</div></div>
+        <div class="brand"><div class="badge"><img src="logo-itamae.jpg" alt="이타마에스시"></div><div class="bn">이타마에스시</div></div>
+        <div class="brand"><div class="badge"><img src="logo-juyu.jpg" alt="주유별장"></div><div class="bn">주유별장</div></div>
+        <div class="brand"><div class="badge"><img src="logo-jjilhal.jpg" alt="질할브로스"></div><div class="bn">질할브로스</div></div>
+        <div class="brand"><div class="badge empty"><span>로고<br>준비중</span></div><div class="bn">차알</div></div>
+        <div class="brand"><div class="badge"><img src="logo-tamarind.jpg" alt="타마린드"></div><div class="bn">타마린드</div></div>
+        <div class="brand"><div class="badge"><img src="logo-pollys.jpg" alt="폴리스"></div><div class="bn">폴리스</div></div>
+      </div>
+    </div>
+    <div class="cat">
+      <div class="clabel">카페 · 디저트</div>
+      <div class="grid">
+        <div class="brand"><div class="badge"><img src="logo-raisondetre.jpg" alt="레종데트르"></div><div class="bn">레종데트르</div></div>
+        <div class="brand"><div class="badge"><img src="logo-susu.jpg" alt="수수커피"></div><div class="bn">수수커피</div></div>
+        <div class="brand"><div class="badge"><img src="logo-siopangya.jpg" alt="시오팡야"></div><div class="bn">시오팡야</div></div>
+        <div class="brand"><div class="badge"><img src="logo-indexcaramel.jpg" alt="인덱스카라멜"></div><div class="bn">인덱스카라멜</div></div>
+        <div class="brand"><div class="badge"><img src="logo-colectivo.jpg" alt="콜렉티보"></div><div class="bn">콜렉티보</div></div>
+        <div class="brand"><div class="badge"><img src="logo-acaibora.jpg" alt="클럽아사이보라"></div><div class="bn">클럽아사이보라</div></div>
+        <div class="brand"><div class="badge"><img src="logo-felt.jpg" alt="펠트커피"></div><div class="bn">펠트커피</div></div>
+        <div class="brand"><div class="badge"><img src="logo-fobi.jpg" alt="포비"></div><div class="bn">포비</div></div>
+        <div class="brand"><div class="badge empty"><span>로고<br>준비중</span></div><div class="bn">헤르만의정원</div></div>
+      </div>
+    </div>
+    <div class="cat">
+      <div class="clabel">리테일</div>
+      <div class="grid">
+        <div class="brand"><div class="badge"><img src="logo-kiwa.jpg" alt="키와 KIWA"></div><div class="bn">키와 KIWA</div></div>
+        <div class="brand"><div class="badge"><img src="logo-fibreno.jpg" alt="피브레노"></div><div class="bn">피브레노</div></div>
+      </div>
+    </div>
   </div>
 
   <footer>
