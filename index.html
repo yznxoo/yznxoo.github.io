@@ -6,204 +6,350 @@
 <title>네이버페이 머니·포인트 결제 방법 안내</title>
 <link href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquareNeo@1.0/nanumsquareneo.css" rel="stylesheet">
 <style>
-  :root{
-    --green:#03C75A;
-    --black:#111111;
-    --white:#FFFFFF;
-    --line:rgba(17,17,17,.12);
-    --soft:rgba(17,17,17,.55);
-  }
+  :root{--green:#03C75A;--black:#111111;--white:#FFFFFF;--line:rgba(17,17,17,.12);--soft:rgba(17,17,17,.55);}
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{
-    font-family:'NanumSquareNeo','Apple SD Gothic Neo',sans-serif;
-    background:var(--white);color:var(--black);line-height:1.62;word-break:keep-all;
-    -webkit-font-smoothing:antialiased;
-  }
+  body{font-family:'NanumSquareNeo','Apple SD Gothic Neo',sans-serif;background:var(--white);color:var(--black);line-height:1.62;-webkit-font-smoothing:antialiased;word-break:keep-all;}
   .wrap{max-width:480px;margin:0 auto;background:var(--white);min-height:100vh;}
 
-  /* header */
-  header{background:var(--green);color:var(--white);padding:32px 22px 28px;}
+  header{background:var(--green);color:var(--white);padding:30px 22px 26px;}
   .kicker{font-size:12px;font-weight:800;letter-spacing:.14em;}
-  header h1{font-size:24px;font-weight:900;margin-top:10px;line-height:1.34;letter-spacing:-.02em;}
-  header p{font-size:14px;font-weight:400;margin-top:12px;line-height:1.55;}
+  header h1{font-size:23px;font-weight:900;margin-top:9px;line-height:1.34;letter-spacing:-.02em;}
+  header p{font-size:13.5px;font-weight:400;margin-top:11px;line-height:1.55;}
   header p b{font-weight:800;}
 
-  /* warning — 3색: 흰 배경 / 그린 테두리 / 블랙 텍스트 */
-  .warn{margin:18px 16px 0;background:var(--white);border:2px solid var(--green);border-radius:14px;padding:15px 16px;}
-  .warn b{font-size:15px;font-weight:900;display:block;margin-bottom:4px;}
+  .warn{margin:16px 16px 0;background:var(--white);border:2px solid var(--green);border-radius:14px;padding:14px 15px;}
+  .warn b{font-size:14.5px;font-weight:900;display:block;margin-bottom:4px;}
   .warn b span{color:var(--green);}
-  .warn p{font-size:13.5px;font-weight:400;color:var(--black);line-height:1.55;}
-  .warn p b{display:inline;font-size:13.5px;color:var(--green);font-weight:800;}
+  .warn p{font-size:13px;font-weight:400;line-height:1.55;}
+  .warn p b{display:inline;font-size:13px;color:var(--green);font-weight:800;}
 
-  /* benefit */
-  .benefit{margin:12px 16px 0;border:1px solid var(--line);border-radius:14px;padding:15px 16px;}
-  .benefit .row{display:flex;gap:8px;font-size:13.5px;font-weight:400;align-items:baseline;}
+  .benefit{margin:11px 16px 0;border:1px solid var(--line);border-radius:14px;padding:14px 15px;}
+  .benefit .row{display:flex;gap:8px;font-size:13px;font-weight:400;align-items:baseline;}
   .benefit .row+.row{margin-top:6px;}
   .benefit .dot{color:var(--green);font-weight:900;}
   .benefit strong{color:var(--green);font-weight:800;}
 
-  /* section */
   section{padding:0 16px;}
-  .sec-head{display:flex;align-items:center;gap:11px;margin:30px 0 6px;}
-  .sec-num{flex:0 0 auto;width:30px;height:30px;border-radius:9px;background:var(--green);color:var(--white);font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center;}
-  .sec-head h2{font-size:19px;font-weight:900;letter-spacing:-.02em;}
-  .sec-head .cnt{margin-left:auto;font-size:12px;font-weight:700;color:var(--white);background:var(--black);padding:3px 10px;border-radius:20px;}
-  .sec-desc{font-size:13px;font-weight:400;color:var(--soft);margin:0 2px 16px;}
+  .sec-head{display:flex;align-items:center;gap:11px;margin:28px 0 6px;}
+  .sec-num{flex:0 0 auto;width:29px;height:29px;border-radius:9px;background:var(--green);color:var(--white);font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;}
+  .sec-num.zero{background:var(--black);}
+  .sec-head h2{font-size:18px;font-weight:900;letter-spacing:-.02em;}
+  .sec-desc{font-size:12.5px;font-weight:400;color:var(--soft);margin:0 2px 14px;}
 
-  /* step */
-  .step{display:flex;gap:14px;padding:15px 0;border-top:1px solid var(--line);}
-  .step:first-of-type{border-top:none;}
-  .step-n{flex:0 0 auto;width:27px;height:27px;border-radius:50%;background:var(--green);color:var(--white);font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:1px;}
-  .step-body{flex:1 1 auto;min-width:0;}
-  .step-body .t{font-size:15.5px;font-weight:800;letter-spacing:-.01em;}
-  .step-body .d{font-size:13.5px;font-weight:400;color:var(--black);margin-top:4px;line-height:1.6;}
-  .step-body .d b{font-weight:800;color:var(--green);}
-  .shot{margin-top:12px;border-radius:14px;overflow:hidden;border:1px solid var(--line);}
-  .shot img{width:100%;display:block;}
+  /* accordion */
+  .pick{font-size:13px;font-weight:400;margin:0 2px 13px;line-height:1.6;}
+  .pick b{font-weight:800;color:var(--green);}
+  .acc{border:1.5px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:11px;}
+  .acc>summary{list-style:none;cursor:pointer;padding:14px 15px;display:flex;align-items:center;gap:10px;font-weight:800;font-size:14.5px;user-select:none;}
+  .acc>summary::-webkit-details-marker{display:none}
+  .acc .app{flex:0 0 auto;width:25px;height:25px;border-radius:8px;background:var(--green);color:var(--white);font-weight:900;font-size:12px;display:flex;align-items:center;justify-content:center;}
+  .acc .app.dk{background:var(--black);}
+  .acc .chev{margin-left:auto;transition:transform .2s;font-size:12px;color:var(--soft);font-weight:800;}
+  .acc[open] .chev{transform:rotate(180deg);}
+  .acc .inner{border-top:1px solid var(--line);}
 
-  .flow-gap{height:1px;background:var(--line);margin:24px 16px 0;}
+  .merge{display:flex;align-items:center;gap:12px;margin:20px 2px 0;}
+  .merge::before,.merge::after{content:"";flex:1;height:1px;background:var(--green);opacity:.4;}
+  .merge span{font-size:12px;font-weight:800;color:var(--green);white-space:nowrap;}
 
-  /* help — 블랙 카드 */
+  /* ===== carousel ===== */
+  .carousel{margin-top:4px;}
+  .track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;gap:0;}
+  .track::-webkit-scrollbar{display:none}
+  .slide{flex:0 0 100%;scroll-snap-align:center;padding:2px 2px 0;}
+  .slide .num{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:800;color:var(--green);margin-bottom:7px;}
+  .slide .num .b{width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;}
+  .slide .num.dk .b{background:var(--black);}
+  .slide .num.dk{color:var(--black);}
+  .slide .t{font-size:16px;font-weight:900;letter-spacing:-.01em;}
+  .slide .d{font-size:13px;font-weight:400;margin-top:5px;line-height:1.55;min-height:2.6em;}
+  .slide .d b{font-weight:800;color:var(--green);}
+  .slide .shot{margin-top:11px;border-radius:14px;overflow:hidden;border:1px solid var(--line);}
+  .slide .shot img{width:100%;display:block;}
+
+  /* controls */
+  .ctrl{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:14px;}
+  .arrow{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line);background:var(--white);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--black);
+    flex:0 0 auto;transition:.15s;-webkit-tap-highlight-color:transparent;}
+  .arrow:active{transform:scale(.92)}
+  .arrow[disabled]{opacity:.28;cursor:default}
+  .dots{display:flex;gap:6px;align-items:center;}
+  .dot2{width:7px;height:7px;border-radius:50%;background:var(--line);transition:.2s;}
+  .dot2.on{background:var(--green);width:20px;border-radius:4px;}
+  .counter{font-size:12.5px;font-weight:800;color:var(--soft);min-width:42px;text-align:center;}
+
+  .flow-gap{height:1px;background:var(--line);margin:26px 16px 0;}
+
   .help{margin:28px 16px 0;background:var(--black);color:var(--white);border-radius:16px;padding:22px 18px;}
   .help h3{font-size:16px;font-weight:900;margin-bottom:8px;}
-  .help p{font-size:13.5px;font-weight:400;line-height:1.62;color:var(--white);}
+  .help p{font-size:13.5px;font-weight:400;line-height:1.62;}
   .help p b{color:var(--green);font-weight:800;}
   .help .q{margin-top:14px;font-size:13px;font-weight:400;border:1px solid rgba(255,255,255,.28);border-radius:10px;padding:12px 13px;line-height:1.6;}
   .help .q b{color:var(--green);font-weight:800;}
 
   footer{text-align:center;padding:28px 16px 36px;color:var(--soft);font-size:11.5px;font-weight:400;}
   footer .tag{font-weight:800;color:var(--black);}
+
+  .swipe-hint{font-size:11.5px;color:var(--soft);text-align:center;margin-top:9px;font-weight:400;}
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <header>
-    <div class="kicker">광화문D타워 · NAVER PAY</div>
-    <h1>네이버페이 머니·포인트로<br>결제하고 10% 적립받기</h1>
-    <p>이 매장은 네이버페이 <b>머니·포인트로 결제</b>하면<br>결제금액의 10%를 네이버 포인트로 적립해 드려요.</p>
+    <div class="kicker">NAVER PAY · 광화문D타워</div>
+    <h1>네이버페이 머니·포인트로 결제하고 10% 적립받기</h1>
+    <p>이 매장은 네이버페이 <b>머니·포인트로 결제</b>하면 결제금액의 10%를 네이버 포인트로 적립해 드려요.</p>
   </header>
 
   <div class="warn">
     <b><span>！</span> ‘네이버페이 카드’로 결제하면 적립되지 않아요</b>
-    <p>적립은 <b>머니·포인트로 결제</b>할 때만 됩니다.<br>결제 전 결제 수단을 꼭 확인해 주세요.</p>
+    <p>적립은 <b>머니·포인트로 결제</b>할 때만 됩니다. 결제 전 결제 수단을 꼭 확인해 주세요.</p>
   </div>
 
   <div class="benefit">
     <div class="row"><span class="dot">·</span><span>1만 원 이상 결제 시 <strong>10% 적립</strong> (1회 최대 1만 원)</span></div>
-    <div class="row"><span class="dot">·</span><span>기간 내 <strong>회원당 최대 5회</strong>까지 적립</span></div>
-    <div class="row"><span class="dot">·</span><span>기간 2026.9.1 ~ 9.30</span></div>
+    <div class="row"><span class="dot">·</span><span>기간 내 <strong>회원당 최대 5만 원</strong>까지 적립</span></div>
+    <div class="row"><span class="dot">·</span><span>적립 비용은 네이버가 부담 · 기간 2026.9.1 ~ 9.30</span></div>
   </div>
 
+  <!-- 섹션 0: 시작하기 -->
   <section>
-    <div class="sec-head">
-      <div class="sec-num">1</div>
-      <h2>결제 계좌 등록하기</h2>
-      <div class="cnt">10단계</div>
-    </div>
-    <p class="sec-desc">머니로 결제하려면 계좌를 한 번만 등록하면 돼요.<br>(네이버페이 앱 기준)</p>
+    <div class="sec-head"><div class="sec-num zero">0</div><h2>어떤 앱으로 시작할까요?</h2></div>
+    <p class="pick">네이버페이 결제는 <b>네이버페이 앱</b>이나 <b>네이버 앱</b> 어느 쪽으로도 할 수 있어요. 쓰시는 앱을 눌러 시작하세요. 뒷부분(계좌 등록)은 두 방법이 똑같아요.</p>
 
-    <div class="step"><div class="step-n">1</div><div class="step-body">
-      <div class="t">네이버페이 앱 열기</div>
-      <div class="d">앱을 열면 <b>‘계좌 연결 필요’</b>가 떠요.<br>그 머니·포인트 카드를 눌러요.</div>
-      <div class="shot"><img src="signup-01.jpg" alt="네이버페이 홈 화면"></div>
-    </div></div>
-    <div class="step"><div class="step-n">2</div><div class="step-body">
-      <div class="t">계좌 추가 누르기</div>
-      <div class="d">아래 출금 계좌에서 <b>＋ 계좌 추가</b>를 눌러요.</div>
-      <div class="shot"><img src="signup-02.jpg" alt="계좌 추가"></div>
-    </div></div>
-    <div class="step"><div class="step-n">3</div><div class="step-body">
-      <div class="t">약관 동의</div>
-      <div class="d">약관을 확인하고 <b>동의하고 계속하기</b>를 눌러요.</div>
-      <div class="shot"><img src="signup-03.jpg" alt="약관 동의"></div>
-    </div></div>
-    <div class="step"><div class="step-n">4</div><div class="step-body">
-      <div class="t">은행 선택</div>
-      <div class="d">목록에서 <b>내 계좌의 은행</b>을 선택해요.<br>본인 명의 계좌만 연결돼요.</div>
-      <div class="shot"><img src="signup-04.jpg" alt="은행 선택"></div>
-    </div></div>
-    <div class="step"><div class="step-n">5</div><div class="step-body">
-      <div class="t">계좌번호 입력</div>
-      <div class="d"><b>‘-’ 없이</b> 계좌번호를 입력하고 다음을 눌러요.</div>
-      <div class="shot"><img src="signup-05.jpg" alt="계좌번호 입력"></div>
-    </div></div>
-    <div class="step"><div class="step-n">6</div><div class="step-body">
-      <div class="t">인증 방법 선택</div>
-      <div class="d">출금이체 동의 방법 중 <b>ARS 전화 인증</b>이 가장 간편해요.</div>
-      <div class="shot"><img src="signup-06.jpg" alt="인증 방법 선택"></div>
-    </div></div>
-    <div class="step"><div class="step-n">7</div><div class="step-body">
-      <div class="t">본인 정보 입력</div>
-      <div class="d">이름·주민등록번호·통신사·휴대전화 번호를 입력하고 다음을 눌러요.</div>
-      <div class="shot"><img src="signup-07.jpg" alt="본인 정보 입력"></div>
-    </div></div>
-    <div class="step"><div class="step-n">8</div><div class="step-body">
-      <div class="t">ARS 전화 인증</div>
-      <div class="d"><b>ARS 전화 요청</b>을 누르고, 전화가 오면 화면 속 숫자를 그대로 눌러요.</div>
-      <div class="shot"><img src="signup-08.jpg" alt="ARS 전화 인증"></div>
-    </div></div>
-    <div class="step"><div class="step-n">9</div><div class="step-body">
-      <div class="t">1원 입금자명 확인</div>
-      <div class="d">내 계좌에 <b>1원</b>이 들어와요.<br>입금자명 ‘N + 소문자 4글자’에서 그 4글자를 입력해요.</div>
-      <div class="shot"><img src="signup-09.jpg" alt="1원 입금 확인"></div>
-    </div></div>
-    <div class="step"><div class="step-n">10</div><div class="step-body">
-      <div class="t">계좌 등록 완료</div>
-      <div class="d"><b>‘계좌가 등록되었습니다’</b>가 뜨면 끝!<br>이제 머니를 충전할 수 있어요.</div>
-      <div class="shot"><img src="signup-10.jpg" alt="계좌 등록 완료"></div>
-    </div></div>
+    <details class="acc" open>
+      <summary><span class="app">P</span>네이버페이 앱으로 시작<span class="chev">▼</span></summary>
+      <div class="inner">
+        <div class="carousel" data-car="pay">
+          <div class="track">
+            <div class="slide">
+              <div class="num"><span class="b">1</span>네이버페이 앱</div>
+              <div class="t">앱 열기</div>
+              <div class="d">앱을 열면 위쪽에 <b>‘계좌 연결 필요’</b>가 떠요.</div>
+              <div class="shot"><img src="signup-01.jpg" alt="네이버페이 앱 홈"></div>
+            </div>
+            <div class="slide">
+              <div class="num"><span class="b">2</span>네이버페이 앱</div>
+              <div class="t">잔액(금액) 누르기</div>
+              <div class="d">포인트·머니 카드에서 <b>금액(잔액)</b>이 적힌 곳을 눌러요.</div>
+              <div class="shot"><img src="signup-01.jpg" alt="잔액 누르기"></div>
+            </div>
+            <div class="slide">
+              <div class="num"><span class="b">3</span>네이버페이 앱</div>
+              <div class="t">계좌 추가 누르기</div>
+              <div class="d">출금 계좌에서 <b>＋ 계좌 추가</b>를 눌러요.</div>
+              <div class="shot"><img src="signup-02.jpg" alt="계좌 추가"></div>
+            </div>
+          </div>
+          <div class="ctrl">
+            <button class="arrow prev" aria-label="이전">‹</button>
+            <div class="dots"></div>
+            <div class="counter"></div>
+            <button class="arrow next" aria-label="다음">›</button>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary><span class="app dk">N</span>네이버 앱으로 시작<span class="chev">▼</span></summary>
+      <div class="inner">
+        <div class="carousel" data-car="naver">
+          <div class="track">
+            <div class="slide">
+              <div class="num dk"><span class="b">1</span>네이버 앱</div>
+              <div class="t">pay 아이콘 누르기</div>
+              <div class="d">네이버 앱 홈 왼쪽 위 <b>‘pay’</b> 아이콘을 눌러요.</div>
+              <div class="shot"><img src="naver-01.jpg" alt="네이버 앱 홈 pay"></div>
+            </div>
+            <div class="slide">
+              <div class="num dk"><span class="b">2</span>네이버 앱</div>
+              <div class="t">현장결제 누르기</div>
+              <div class="d">네이버페이 화면에서 <b>‘현장결제’</b>를 눌러요.</div>
+              <div class="shot"><img src="naver-02.jpg" alt="현장결제"></div>
+            </div>
+            <div class="slide">
+              <div class="num dk"><span class="b">3</span>네이버 앱</div>
+              <div class="t">출금계좌 등록하기</div>
+              <div class="d">포인트·머니 카드의 <b>‘출금계좌 등록하기’</b>를 눌러요.</div>
+              <div class="shot"><img src="naver-03.jpg" alt="출금계좌 등록하기"></div>
+            </div>
+          </div>
+          <div class="ctrl">
+            <button class="arrow prev" aria-label="이전">‹</button>
+            <div class="dots"></div>
+            <div class="counter"></div>
+            <button class="arrow next" aria-label="다음">›</button>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <div class="merge"><span>여기서부터 두 방법 모두 같아요</span></div>
+  </section>
+
+  <!-- 섹션 1: 계좌 등록 (공통) -->
+  <section>
+    <div class="sec-head"><div class="sec-num">1</div><h2>결제 계좌 등록하기</h2></div>
+    <p class="sec-desc">계좌는 한 번만 등록하면 다음부터 바로 결제돼요. 옆으로 넘기며 따라 하세요.</p>
+
+    <div class="carousel" data-car="signup">
+      <div class="track">
+        <div class="slide">
+          <div class="num"><span class="b">1</span>계좌 등록</div>
+          <div class="t">약관 동의</div>
+          <div class="d">약관을 확인하고 <b>동의하고 계속하기</b>를 눌러요.</div>
+          <div class="shot"><img src="signup-03.jpg" alt="약관 동의"></div>
+        </div>
+        <div class="slide">
+          <div class="num"><span class="b">2</span>계좌 등록</div>
+          <div class="t">은행 선택</div>
+          <div class="d">목록에서 <b>내 계좌의 은행</b>을 선택해요. 본인 명의 계좌만 연결돼요.</div>
+          <div class="shot"><img src="signup-04.jpg" alt="은행 선택"></div>
+        </div>
+        <div class="slide">
+          <div class="num"><span class="b">3</span>계좌 등록</div>
+          <div class="t">계좌번호 입력</div>
+          <div class="d"><b>‘-’ 없이</b> 계좌번호를 입력하고 다음을 눌러요.</div>
+          <div class="shot"><img src="signup-05.jpg" alt="계좌번호 입력"></div>
+        </div>
+        <div class="slide">
+          <div class="num"><span class="b">4</span>계좌 등록</div>
+          <div class="t">인증 방법 선택</div>
+          <div class="d">출금이체 동의 방법 중 <b>ARS 전화 인증</b>이 가장 간편해요.</div>
+          <div class="shot"><img src="signup-06.jpg" alt="인증 방법 선택"></div>
+        </div>
+        <div class="slide">
+          <div class="num"><span class="b">5</span>계좌 등록</div>
+          <div class="t">본인 정보 입력</div>
+          <div class="d">이름·주민등록번호·통신사·휴대전화 번호를 입력하고 다음을 눌러요.</div>
+          <div class="shot"><img src="signup-07.jpg" alt="본인 정보 입력"></div>
+        </div>
+        <div class="slide">
+          <div class="num"><span class="b">6</span>계좌 등록</div>
+          <div class="t">ARS 전화 인증</div>
+          <div class="d"><b>ARS 전화 요청</b>을 누르고, 전화가 오면 화면 속 숫자를 그대로 눌러요.</div>
+          <div class="shot"><img src="signup-08.jpg" alt="ARS 전화 인증"></div>
+        </div>
+        <div class="slide">
+          <div class="num"><span class="b">7</span>계좌 등록</div>
+          <div class="t">1원 확인 → 등록 완료</div>
+          <div class="d">계좌에 <b>1원</b>이 들어와요. 입금자명 ‘N + 소문자 4글자’에서 그 4글자를 입력하면 완료!</div>
+          <div class="shot"><img src="signup-09.jpg" alt="1원 입금 확인"></div>
+        </div>
+      </div>
+      <div class="ctrl">
+        <button class="arrow prev" aria-label="이전">‹</button>
+        <div class="dots"></div>
+        <div class="counter"></div>
+        <button class="arrow next" aria-label="다음">›</button>
+      </div>
+    </div>
   </section>
 
   <div class="flow-gap"></div>
 
+  <!-- 섹션 2: 머니 충전 -->
   <section>
-    <div class="sec-head">
-      <div class="sec-num">2</div>
-      <h2>머니 충전하기</h2>
-      <div class="cnt">5단계</div>
-    </div>
+    <div class="sec-head"><div class="sec-num">2</div><h2>머니 충전하기</h2></div>
     <p class="sec-desc">등록한 계좌에서 결제할 만큼 머니를 채워요.</p>
 
-    <div class="step"><div class="step-n">1</div><div class="step-body">
-      <div class="t">머니·포인트 열기</div>
-      <div class="d">홈에서 <b>머니·포인트 카드</b>를 눌러요.</div>
-      <div class="shot"><img src="charge-01.jpg" alt="머니·포인트 열기"></div>
-    </div></div>
-    <div class="step"><div class="step-n">2</div><div class="step-body">
-      <div class="t">머니 선택</div>
-      <div class="d">머니·포인트 창에서 <b>‘머니’</b>를 눌러요.</div>
-      <div class="shot"><img src="charge-02.jpg" alt="머니 선택"></div>
-    </div></div>
-    <div class="step"><div class="step-n">3</div><div class="step-body">
-      <div class="t">충전 누르기</div>
-      <div class="d">머니 화면에서 <b>충전</b> 버튼을 눌러요.</div>
-      <div class="shot"><img src="charge-03.jpg" alt="충전 누르기"></div>
-    </div></div>
-    <div class="step"><div class="step-n">4</div><div class="step-body">
-      <div class="t">금액 입력 후 충전</div>
-      <div class="d">금액을 입력하거나 +금액을 고르고 <b>충전하기</b>를 눌러요.</div>
-      <div class="shot"><img src="charge-04.jpg" alt="금액 입력 후 충전"></div>
-    </div></div>
-    <div class="step"><div class="step-n">5</div><div class="step-body">
-      <div class="t">충전완료 · 준비 끝!</div>
-      <div class="d"><b>충전완료</b>가 뜨면 끝이에요.<br>계산대에서 <b>머니·포인트로 결제</b>하면 10% 적립돼요.</div>
-      <div class="shot"><img src="charge-05.jpg" alt="충전 완료"></div>
-    </div></div>
+    <div class="carousel" data-car="charge">
+      <div class="track">
+        <div class="slide">
+          <div class="num"><span class="b">1</span>머니 충전</div>
+          <div class="t">잔액(금액) 누르기</div>
+          <div class="d">홈에서 포인트·머니의 <b>금액(잔액)</b>이 적힌 곳을 눌러요.</div>
+          <div class="shot"><img src="charge-01.jpg" alt="잔액 누르기"></div>
+        </div>
+        <div class="slide">
+          <div class="num"><span class="b">2</span>머니 충전</div>
+          <div class="t">머니 잔액 누르기</div>
+          <div class="d">포인트·머니 창에서 <b>‘머니’의 금액(잔액)</b>을 눌러요.</div>
+          <div class="shot"><img src="charge-02.jpg" alt="머니 잔액"></div>
+        </div>
+        <div class="slide">
+          <div class="num"><span class="b">3</span>머니 충전</div>
+          <div class="t">충전 누르기</div>
+          <div class="d">머니 화면에서 <b>충전</b> 버튼을 눌러요.</div>
+          <div class="shot"><img src="charge-03.jpg" alt="충전 누르기"></div>
+        </div>
+        <div class="slide">
+          <div class="num"><span class="b">4</span>머니 충전</div>
+          <div class="t">금액 입력 후 충전</div>
+          <div class="d">금액을 입력하거나 +1만·+5만을 고르고 <b>충전하기</b>를 눌러요.</div>
+          <div class="shot"><img src="charge-04.jpg" alt="금액 입력"></div>
+        </div>
+        <div class="slide">
+          <div class="num"><span class="b">5</span>머니 충전</div>
+          <div class="t">충전 완료 · 준비 끝!</div>
+          <div class="d"><b>충전완료</b>가 뜨면 끝! 계산대에서 <b>머니로 결제</b>하면 10% 적립돼요.</div>
+          <div class="shot"><img src="charge-05.jpg" alt="충전 완료"></div>
+        </div>
+      </div>
+      <div class="ctrl">
+        <button class="arrow prev" aria-label="이전">‹</button>
+        <div class="dots"></div>
+        <div class="counter"></div>
+        <button class="arrow next" aria-label="다음">›</button>
+      </div>
+    </div>
   </section>
 
   <div class="help">
     <h3>결제할 때 이것만 기억하세요</h3>
-    <p>계산대에서 “네이버페이로 결제할게요”라고 말한 뒤,<br>결제 수단을 <b>머니 또는 포인트</b>로 선택하면 자동으로 10% 적립됩니다.</p>
-    <div class="q"><b>Q.</b> 카드로 결제하면요?<br>→ 네이버페이 <b>카드</b> 결제는 적립 대상이 아니에요.<br>꼭 머니·포인트로 결제해 주세요.</div>
+    <p>계산대에서 “네이버페이로 결제할게요”라고 말한 뒤, 결제 수단을 <b>머니 또는 포인트</b>로 선택하면 자동으로 10% 적립됩니다.</p>
+    <div class="q"><b>Q.</b> 카드로 결제하면요?<br>→ 네이버페이 <b>카드</b> 결제는 적립 대상이 아니에요. 꼭 머니·포인트로 결제해 주세요.</div>
   </div>
 
   <footer>
     <div class="tag">광화문D타워 네이버페이 프로모션</div>
-    <div style="margin-top:4px">2026.9.1 – 9.30 · 기간 내 회원당 최대 5회</div>
+    <div style="margin-top:4px">2026.9.1 – 9.30</div>
   </footer>
 
 </div>
+
+<script>
+  document.querySelectorAll('.carousel').forEach(function(car){
+    var track=car.querySelector('.track');
+    var slides=car.querySelectorAll('.slide');
+    var dotsBox=car.querySelector('.dots');
+    var counter=car.querySelector('.counter');
+    var prev=car.querySelector('.prev');
+    var next=car.querySelector('.next');
+    var n=slides.length, cur=0;
+    // build dots
+    slides.forEach(function(_,i){
+      var d=document.createElement('div'); d.className='dot2'+(i===0?' on':''); dotsBox.appendChild(d);
+    });
+    var dots=dotsBox.querySelectorAll('.dot2');
+    function update(){
+      dots.forEach(function(d,i){d.classList.toggle('on',i===cur)});
+      counter.textContent=(cur+1)+' / '+n;
+      prev.disabled=(cur===0); next.disabled=(cur===n-1);
+    }
+    function goto(i){
+      cur=Math.max(0,Math.min(n-1,i));
+      track.scrollTo({left:slides[cur].offsetLeft-track.offsetLeft,behavior:'smooth'});
+      update();
+    }
+    prev.addEventListener('click',function(){goto(cur-1)});
+    next.addEventListener('click',function(){goto(cur+1)});
+    // sync on manual swipe
+    var t;
+    track.addEventListener('scroll',function(){
+      clearTimeout(t);
+      t=setTimeout(function(){
+        var idx=Math.round(track.scrollLeft/slides[0].offsetWidth);
+        if(idx!==cur){cur=idx;update();}
+      },80);
+    });
+    update();
+  });
+</script>
 </body>
 </html>
