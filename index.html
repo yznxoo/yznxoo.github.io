@@ -55,6 +55,21 @@
 
   /* ===== carousel ===== */
   .carousel{margin-top:4px;}
+  /* 1·2번: 가로 슬라이드 (peek + 화살표 강조) */
+  .hcar .track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px;padding-right:44px;}
+  .hcar .track::-webkit-scrollbar{display:none}
+  .hcar .slide{flex:0 0 86%;scroll-snap-align:start;padding:2px 0 0;border-top:none;}
+  .hcar .slide .num{margin-left:2px;margin-right:2px;}
+  .hcar .slide .t{padding:0 2px;}
+  .hcar .slide .d{padding:0 2px;}
+  .hcar .ctrl{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px;}
+  .hcar .arrow{width:44px;height:44px;border-radius:50%;border:none;background:var(--green);color:#fff;font-size:20px;font-weight:900;box-shadow:0 3px 10px rgba(3,199,90,.3);}
+  .hcar .arrow[disabled]{background:var(--line);color:rgba(17,17,17,.3);box-shadow:none;}
+  .hcar .dot2.on{background:var(--green);}
+  .hcar .counter{font-size:14px;font-weight:800;color:var(--black);}
+  /* 넘김 안내 배지 */
+  .swipe-tip{display:inline-flex;align-items:center;gap:6px;background:rgba(3,199,90,.12);color:var(--green-dk,#02A94D);font-size:12.5px;font-weight:800;padding:6px 12px;border-radius:20px;margin:0 2px 12px;}
+
   .track{display:block;}
   
   .slide{padding:16px 0 4px;border-top:1px solid var(--line);}
@@ -145,7 +160,7 @@
     <details class="acc">
       <summary><span class="app">P</span>네이버페이 앱으로 시작<span class="chev">▼</span></summary>
       <div class="inner">
-        <div class="carousel" data-car="pay">
+        <div class="carousel hcar" data-car="pay">
           <div class="track">
             <div class="slide">
               <div class="num"><span class="b">1</span>네이버페이 앱</div>
@@ -173,7 +188,7 @@
     <details class="acc">
       <summary><span class="app dk">N</span>네이버 앱으로 시작<span class="chev">▼</span></summary>
       <div class="inner">
-        <div class="carousel" data-car="naver">
+        <div class="carousel hcar" data-car="naver">
           <div class="track">
             <div class="slide">
               <div class="num dk"><span class="b">1</span>네이버 앱</div>
@@ -210,9 +225,10 @@
   <!-- 섹션 1: 계좌 등록 (공통) -->
   <section>
     <div class="sec-head"><div class="sec-num">1</div><h2>결제 계좌 등록하기</h2></div>
-    <p class="sec-desc">계좌는 한 번만 등록하면 돼요.<br>아래 순서대로 따라 해보세요.</p>
+    <p class="sec-desc">계좌는 한 번만 등록하면 돼요.</p>
+    <div class="swipe-tip">← 옆으로 넘기며 보기</div>
 
-    <div class="carousel" data-car="signup">
+    <div class="carousel hcar" data-car="signup">
       <div class="track">
         <div class="slide">
           <div class="num"><span class="b">1</span>계좌 등록</div>
@@ -272,8 +288,9 @@
   <section>
     <div class="sec-head"><div class="sec-num">2</div><h2>머니 충전하기</h2></div>
     <p class="sec-desc">등록한 계좌에서 결제할 만큼 머니를 채워요.</p>
+    <div class="swipe-tip">← 옆으로 넘기며 보기</div>
 
-    <div class="carousel" data-car="charge">
+    <div class="carousel hcar" data-car="charge">
       <div class="track">
         <div class="slide">
           <div class="num"><span class="b">1</span>머니 충전</div>
@@ -376,6 +393,32 @@
 
 </div>
 
+
+
+<script>
+  document.querySelectorAll('.hcar').forEach(function(car){
+    var track=car.querySelector('.track');
+    var slides=car.querySelectorAll('.slide');
+    var dotsBox=car.querySelector('.dots');
+    var counter=car.querySelector('.counter');
+    var prev=car.querySelector('.prev');
+    var next=car.querySelector('.next');
+    var n=slides.length, cur=0;
+    slides.forEach(function(_,i){var d=document.createElement('div');d.className='dot2'+(i===0?' on':'');dotsBox.appendChild(d);});
+    var dots=dotsBox.querySelectorAll('.dot2');
+    function update(){
+      dots.forEach(function(d,i){d.classList.toggle('on',i===cur)});
+      counter.textContent=(cur+1)+' / '+n;
+      prev.disabled=(cur===0); next.disabled=(cur===n-1);
+    }
+    function goto(i){cur=Math.max(0,Math.min(n-1,i));track.scrollTo({left:slides[cur].offsetLeft-track.offsetLeft,behavior:'smooth'});update();}
+    prev.addEventListener('click',function(){goto(cur-1)});
+    next.addEventListener('click',function(){goto(cur+1)});
+    var t;
+    track.addEventListener('scroll',function(){clearTimeout(t);t=setTimeout(function(){var idx=Math.round(track.scrollLeft/(slides[0].offsetWidth+12));if(idx!==cur){cur=Math.max(0,Math.min(n-1,idx));update();}},80);});
+    update();
+  });
+</script>
 
 </body>
 </html>
