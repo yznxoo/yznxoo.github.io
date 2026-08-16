@@ -76,17 +76,20 @@
   .steptab{flex-direction:column;gap:3px;padding:12px 8px;}
   .steptab .stepno{font-size:11px;font-weight:900;color:var(--soft);letter-spacing:.03em;}
   .steptab.on .stepno{color:var(--green);}
+  .steptab.on{border-color:var(--green);background:rgba(3,199,90,.06);}
+  .steptab{border:2px solid var(--line);}
+
   .steptabs{margin-top:2px;}
-  .step-next{display:block;width:calc(100% - 4px);margin:18px 2px 2px;padding:15px;border:none;border-radius:12px;background:var(--black);color:#fff;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:.15s;}
+  .step-next{display:block;width:calc(100% - 4px);margin:18px 2px 2px;padding:15px;border:2px solid var(--green);border-radius:12px;background:var(--white);color:var(--green);font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:.15s;}
   .step-next:active{transform:scale(.98);}
 
   /* swipe-tip bouncing 화살표 */
   .swipe-tip .arw{display:inline-block;animation:swipeBounce 1.1s ease-in-out infinite;}
   @keyframes swipeBounce{0%,100%{transform:translateX(0)}50%{transform:translateX(-5px)}}
   /* 최종 CTA */
-  .final-cta{margin:30px 16px 0;background:var(--green);color:#fff;border-radius:16px;padding:24px 20px;text-align:center;}
+  .final-cta{margin:30px 16px 0;background:var(--black);color:var(--green);border:2px solid var(--white);border-radius:16px;padding:24px 20px;text-align:center;}
   .final-cta .t{font-size:19px;font-weight:900;line-height:1.4;letter-spacing:-.02em;}
-  .final-cta .s{font-size:13.5px;font-weight:500;opacity:.92;margin-top:8px;}
+  .final-cta .s{font-size:13.5px;font-weight:500;color:rgba(255,255,255,.8);margin-top:8px;}
   /* 계좌등록 안심 배지 */
   .reassure{display:inline-flex;align-items:center;gap:7px;background:var(--white);color:var(--black);border:1.5px solid var(--black);font-size:13px;font-weight:800;padding:7px 13px;border-radius:20px;margin:0 2px 6px;}
 
@@ -143,11 +146,11 @@
 
   .flow-gap{height:1px;background:var(--line);margin:26px 16px 0;}
 
-  .help{margin:28px 16px 0;background:var(--black);color:var(--white);border-radius:16px;padding:22px 18px;}
+  .help{margin:28px 16px 0;background:var(--white);color:var(--black);border:2px solid var(--green);border-radius:16px;padding:22px 18px;}
   .help h3{font-size:18.5px;font-weight:900;margin-bottom:10px;}
   .help p{font-size:15px;font-weight:500;line-height:1.65;}
   .help p b{color:var(--green);font-weight:800;}
-  .help .q{margin-top:16px;font-size:14.5px;font-weight:500;border:1px solid rgba(255,255,255,.3);border-radius:12px;padding:14px 15px;line-height:1.65;}
+  .help .q{margin-top:16px;font-size:14.5px;font-weight:500;border:1px solid rgba(0,0,0,.15);border-radius:12px;padding:14px 15px;line-height:1.65;}
   .help .q b{color:var(--green);font-weight:800;}
 
 
@@ -182,7 +185,7 @@
   <header>
     <div class="kicker">광화문D타워 · NAVER PAY</div>
     <h1><span style="color:var(--green)">오늘부터 광화문D타워는</span><br>네이버페이로 결제하세요</h1>
-    <p>광화문D타워 25개 브랜드에서 네이버페이 <b>머니·포인트로 결제</b>하면<br>결제금액의 10%를 적립해 드려요.</p>
+    <p>광화문D타워 25개 브랜드에서<br>네이버페이 <b>머니·포인트로 결제</b>하면<br>결제금액의 10%를 적립해 드려요.</p>
     <div class="rollwrap">
       <div class="rolltrack"><div class="rlogo"><img src="logo-gocheongdam.jpg" alt=""></div><div class="rlogo"><img src="logo-ghmseokgalbi.jpg" alt=""></div><div class="rlogo"><img src="logo-drrobin.jpg" alt=""></div><div class="rlogo"><img src="logo-brooklyn.jpg" alt=""></div><div class="rlogo"><img src="logo-yamaya.jpg" alt=""></div><div class="rlogo"><img src="logo-ontheborder.jpg" alt=""></div><div class="rlogo"><img src="logo-itamae.jpg" alt=""></div><div class="rlogo"><img src="logo-juyu.jpg" alt=""></div><div class="rlogo"><img src="logo-jjilhal.jpg" alt=""></div><div class="rlogo"><img src="logo-tamarind.jpg" alt=""></div><div class="rlogo"><img src="logo-pollys.jpg" alt=""></div><div class="rlogo"><img src="logo-raisondetre.jpg" alt=""></div><div class="rlogo"><img src="logo-susu.jpg" alt=""></div><div class="rlogo"><img src="logo-siopangya.jpg" alt=""></div><div class="rlogo"><img src="logo-indexcaramel.jpg" alt=""></div><div class="rlogo"><img src="logo-colectivo.jpg" alt=""></div><div class="rlogo"><img src="logo-acaibora.jpg" alt=""></div><div class="rlogo"><img src="logo-felt.jpg" alt=""></div><div class="rlogo"><img src="logo-fobi.jpg" alt=""></div><div class="rlogo"><img src="logo-kiwa.jpg" alt=""></div><div class="rlogo"><img src="logo-fibreno.jpg" alt=""></div><div class="rlogo"><img src="logo-gocheongdam.jpg" alt=""></div><div class="rlogo"><img src="logo-ghmseokgalbi.jpg" alt=""></div><div class="rlogo"><img src="logo-drrobin.jpg" alt=""></div><div class="rlogo"><img src="logo-brooklyn.jpg" alt=""></div><div class="rlogo"><img src="logo-yamaya.jpg" alt=""></div><div class="rlogo"><img src="logo-ontheborder.jpg" alt=""></div><div class="rlogo"><img src="logo-itamae.jpg" alt=""></div><div class="rlogo"><img src="logo-juyu.jpg" alt=""></div><div class="rlogo"><img src="logo-jjilhal.jpg" alt=""></div><div class="rlogo"><img src="logo-tamarind.jpg" alt=""></div><div class="rlogo"><img src="logo-pollys.jpg" alt=""></div><div class="rlogo"><img src="logo-raisondetre.jpg" alt=""></div><div class="rlogo"><img src="logo-susu.jpg" alt=""></div><div class="rlogo"><img src="logo-siopangya.jpg" alt=""></div><div class="rlogo"><img src="logo-indexcaramel.jpg" alt=""></div><div class="rlogo"><img src="logo-colectivo.jpg" alt=""></div><div class="rlogo"><img src="logo-acaibora.jpg" alt=""></div><div class="rlogo"><img src="logo-felt.jpg" alt=""></div><div class="rlogo"><img src="logo-fobi.jpg" alt=""></div><div class="rlogo"><img src="logo-kiwa.jpg" alt=""></div><div class="rlogo"><img src="logo-fibreno.jpg" alt=""></div></div>
     </div>
@@ -435,13 +438,14 @@
         <a class="brand" href="https://naver.me/FFGL6wHk" target="_blank" rel="noopener"><div class="badge"><img src="logo-fibreno.jpg" alt="피브레노"></div><div class="bn">피브레노</div></a>
       </div>
     </div>
-  </div>
-
-
-  <div class="final-cta">
+  
+    <div class="final-cta">
     <div class="t">오늘부터 광화문D타워에서<br>네이버페이로 결제해 보세요</div>
     <div class="s">머니·포인트로 결제하고 10% 적립까지</div>
   </div>
+  </div>
+
+
 
   <footer>
     <div class="tag">광화문D타워 네이버페이 프로모션</div>
