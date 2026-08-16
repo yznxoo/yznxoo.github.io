@@ -47,7 +47,7 @@
   .acc .app.dk{background:var(--black);}
   .acc .chev{margin-left:auto;transition:transform .2s;font-size:12px;color:var(--soft);font-weight:800;}
   .acc[open] .chev{transform:rotate(180deg);}
-  .acc .inner{border-top:1px solid var(--line);padding-bottom:16px;}
+  .acc .inner{border-top:1px solid var(--line);padding-top:6px;padding-bottom:16px;}
 
   .merge{display:flex;align-items:center;gap:12px;margin:20px 2px 0;}
   .merge::before,.merge::after{content:"";flex:1;height:1px;background:var(--green);opacity:.4;}
@@ -70,8 +70,13 @@
   /* 넘김 안내 배지 */
   .swipe-tip{display:inline-flex;align-items:center;gap:6px;background:rgba(3,199,90,.12);color:var(--green-dk,#02A94D);font-size:12.5px;font-weight:800;padding:6px 12px;border-radius:20px;margin:0 2px 12px;}
   /* 접이식 안 가로 슬라이드: 좌우 여백 확보 */
-  .acc .inner .hcar .track{padding-left:16px;padding-right:44px;}
-  .acc .inner .hcar .ctrl{padding-left:16px;padding-right:16px;}
+  .acc .inner .hcar .track{padding-left:0;padding-right:44px;padding-top:6px;}
+  .acc .inner .hcar .ctrl{padding-left:24px;padding-right:24px;}
+  .acc .inner .hcar .slide .num{margin-left:20px;}
+  .acc .inner .hcar .slide .t{padding-left:20px;}
+  .acc .inner .hcar .slide .d{padding-left:20px;}
+  .acc .inner .hcar .slide .shot{margin-left:20px;}
+
 
 
   .track{display:block;}
