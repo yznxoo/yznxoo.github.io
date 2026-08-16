@@ -486,12 +486,14 @@
       var tab=btn.getAttribute('data-tab');
       var scope=btn.closest('.apptabs')||btn.closest('.steptabs');
       if(!scope) return;
+      // 전환 전 탭버튼 줄의 화면상 위치 기록
+      var btnRow=btn.parentElement;
+      var beforeTop=btnRow.getBoundingClientRect().top;
       scope.querySelectorAll('.tabbtn').forEach(function(b){b.classList.toggle('on',b===btn);});
       scope.querySelectorAll('.tabpanel').forEach(function(pn){pn.classList.toggle('on',pn.getAttribute('data-panel')===tab);});
-      // STEP 탭은 그룹 상단으로 정렬(예측 가능), 앱 선택 탭은 스크롤 안 함
-      if(btn.classList.contains('steptab')){
-        scope.scrollIntoView({behavior:'smooth',block:'start'});
-      }
+      // 전환 직후 즉시(애니메이션 없이) 보정 -> 탭버튼 줄 화면 위치 유지
+      var afterTop=btnRow.getBoundingClientRect().top;
+      window.scrollBy({top: afterTop-beforeTop, behavior:'instant'});
     });
   });
 
