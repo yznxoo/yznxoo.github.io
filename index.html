@@ -13,35 +13,35 @@
   .wrap{max-width:480px;margin:0 auto;background:var(--white);min-height:100vh;}
 
   header{background:var(--green);color:var(--white);padding:30px 22px 26px;}
-  .kicker{font-size:12px;font-weight:800;letter-spacing:.14em;}
-  header h1{font-size:23px;font-weight:900;margin-top:9px;line-height:1.34;letter-spacing:-.02em;}
-  header p{font-size:13.5px;font-weight:400;margin-top:11px;line-height:1.55;}
+  .kicker{font-size:13px;font-weight:800;letter-spacing:.12em;}
+  header h1{font-size:28px;font-weight:900;margin-top:11px;line-height:1.3;letter-spacing:-.025em;}
+  header p{font-size:15px;font-weight:500;margin-top:14px;line-height:1.6;}
   header p b{font-weight:800;}
 
   .warn{margin:16px 16px 0;background:var(--white);border:2px solid var(--green);border-radius:14px;padding:14px 15px;}
-  .warn b{font-size:14.5px;font-weight:900;display:block;margin-bottom:4px;}
+  .warn b{font-size:16.5px;font-weight:900;display:block;margin-bottom:6px;line-height:1.35;}
   .warn b span{color:var(--green);}
-  .warn p{font-size:13px;font-weight:400;line-height:1.55;}
-  .warn p b{display:inline;font-size:13px;color:var(--green);font-weight:800;}
+  .warn p{font-size:14.5px;font-weight:500;line-height:1.6;}
+  .warn p b{display:inline;font-size:17px;color:var(--green);font-weight:800;}
 
   .benefit{margin:11px 16px 0;border:1px solid var(--line);border-radius:14px;padding:14px 15px;}
-  .benefit .row{display:flex;gap:8px;font-size:13px;font-weight:400;align-items:baseline;}
+  .benefit .row{display:flex;gap:9px;font-size:15px;font-weight:500;align-items:baseline;}
   .benefit .row+.row{margin-top:6px;}
   .benefit .dot{color:var(--green);font-weight:900;}
   .benefit strong{color:var(--green);font-weight:800;}
 
   section{padding:0 16px;}
   .sec-head{display:flex;align-items:center;gap:11px;margin:28px 0 6px;}
-  .sec-num{flex:0 0 auto;width:29px;height:29px;border-radius:9px;background:var(--green);color:var(--white);font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;}
+  .sec-num{flex:0 0 auto;width:33px;height:33px;border-radius:10px;background:var(--green);color:var(--white);font-weight:900;font-size:16px;display:flex;align-items:center;justify-content:center;}
   .sec-num.zero{background:var(--black);}
-  .sec-head h2{font-size:18px;font-weight:900;letter-spacing:-.02em;}
-  .sec-desc{font-size:12.5px;font-weight:400;color:var(--soft);margin:0 2px 14px;}
+  .sec-head h2{font-size:21px;font-weight:900;letter-spacing:-.02em;}
+  .sec-desc{font-size:14px;font-weight:500;color:var(--soft);margin:0 2px 16px;}
 
   /* accordion */
-  .pick{font-size:13px;font-weight:400;margin:0 2px 13px;line-height:1.6;}
+  .pick{font-size:14.5px;font-weight:500;margin:0 2px 15px;line-height:1.65;}
   .pick b{font-weight:800;color:var(--green);}
   .acc{border:1.5px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:11px;}
-  .acc>summary{list-style:none;cursor:pointer;padding:14px 15px;display:flex;align-items:center;gap:10px;font-weight:800;font-size:14.5px;user-select:none;}
+  .acc>summary{list-style:none;cursor:pointer;padding:16px 16px;display:flex;align-items:center;gap:11px;font-weight:800;font-size:16.5px;user-select:none;}
   .acc>summary::-webkit-details-marker{display:none}
   .acc .app{flex:0 0 auto;width:25px;height:25px;border-radius:8px;background:var(--green);color:var(--white);font-weight:900;font-size:12px;display:flex;align-items:center;justify-content:center;}
   .acc .app.dk{background:var(--black);}
@@ -55,22 +55,23 @@
 
   /* ===== carousel ===== */
   .carousel{margin-top:4px;}
-  .track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
-    scrollbar-width:none;gap:0;}
-  .track::-webkit-scrollbar{display:none}
-  .slide{flex:0 0 100%;scroll-snap-align:center;padding:2px 2px 0;}
-  .slide .num{margin-left:12px;margin-right:12px;display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:800;color:var(--green);margin-bottom:7px;}
-  .slide .num .b{width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;}
+  .track{display:block;}
+  
+  .slide{padding:16px 0 4px;border-top:1px solid var(--line);}
+  .track .slide:first-child{border-top:none;}
+  .slide .num{margin-left:12px;margin-right:12px;display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:800;color:var(--green);margin-bottom:9px;}
+  .slide .num .b{width:25px;height:25px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13.5px;}
   .slide .num.dk .b{background:var(--black);}
   .slide .num.dk{color:var(--black);}
-  .slide .t{font-size:16px;font-weight:900;letter-spacing:-.01em;padding:0 12px;}
-  .slide .d{font-size:13px;font-weight:400;margin-top:5px;line-height:1.55;min-height:2.6em;padding:0 12px;}
+  .slide .t{font-size:18.5px;font-weight:900;letter-spacing:-.015em;padding:0 12px;}
+  .slide .d{font-size:15px;font-weight:500;margin-top:7px;line-height:1.6;min-height:2.6em;padding:0 12px;}
   .slide .d b{font-weight:800;color:var(--green);}
   .slide .shot{margin-top:11px;border-radius:14px;overflow:hidden;border:1px solid var(--line);}
-  .slide .shot img{width:100%;display:block;}
+  .slide .shot{display:flex;justify-content:center;background:var(--white);}
+  .slide .shot img{max-height:420px;width:auto;max-width:100%;display:block;}
 
   /* controls */
-  .ctrl{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:14px;}
+  .ctrl{display:none;align-items:center;justify-content:center;gap:14px;margin-top:14px;}
   .arrow{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line);background:var(--white);
     display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--black);
     flex:0 0 auto;transition:.15s;-webkit-tap-highlight-color:transparent;}
@@ -84,10 +85,10 @@
   .flow-gap{height:1px;background:var(--line);margin:26px 16px 0;}
 
   .help{margin:28px 16px 0;background:var(--black);color:var(--white);border-radius:16px;padding:22px 18px;}
-  .help h3{font-size:16px;font-weight:900;margin-bottom:8px;}
-  .help p{font-size:13.5px;font-weight:400;line-height:1.62;}
+  .help h3{font-size:18.5px;font-weight:900;margin-bottom:10px;}
+  .help p{font-size:15px;font-weight:500;line-height:1.65;}
   .help p b{color:var(--green);font-weight:800;}
-  .help .q{margin-top:14px;font-size:13px;font-weight:400;border:1px solid rgba(255,255,255,.28);border-radius:10px;padding:12px 13px;line-height:1.6;}
+  .help .q{margin-top:16px;font-size:14.5px;font-weight:500;border:1px solid rgba(255,255,255,.3);border-radius:12px;padding:14px 15px;line-height:1.65;}
   .help .q b{color:var(--green);font-weight:800;}
 
 
@@ -95,8 +96,8 @@
   .stores{margin-top:28px;background:var(--black);color:var(--white);padding:28px 16px 30px;}
   .stores .cap{display:flex;justify-content:center;margin-bottom:14px;}
   .stores .cap span{border:1.5px solid rgba(255,255,255,.5);border-radius:20px;padding:6px 16px;font-size:13px;font-weight:800;}
-  .stores h3{text-align:center;font-size:20px;font-weight:900;letter-spacing:-.02em;}
-  .stores .sub{text-align:center;font-size:12.5px;color:rgba(255,255,255,.65);margin-top:6px;font-weight:400;}
+  .stores h3{text-align:center;font-size:23px;font-weight:900;letter-spacing:-.02em;}
+  .stores .sub{text-align:center;font-size:14px;color:rgba(255,255,255,.7);margin-top:8px;font-weight:500;}
   .stores .sub2{text-align:center;font-size:11.5px;color:rgba(255,255,255,.45);margin-top:4px;font-weight:400;}
   .stores .sub2 span{color:rgba(255,255,255,.6);}
   .cat{margin-top:24px;}
@@ -108,7 +109,7 @@
   .brand .badge img{width:100%;height:100%;object-fit:contain;}
   .brand .badge.empty{background:rgba(255,255,255,.08);border:1px dashed rgba(255,255,255,.3);}
   .brand .badge.empty span{font-size:10.5px;color:rgba(255,255,255,.5);font-weight:700;text-align:center;padding:0 6px;line-height:1.3;}
-  .brand .bn{font-size:12px;font-weight:700;text-align:center;line-height:1.3;word-break:keep-all;}
+  .brand .bn{font-size:13px;font-weight:700;text-align:center;line-height:1.32;word-break:keep-all;}
 
   footer{text-align:center;padding:28px 16px 36px;color:var(--soft);font-size:11.5px;font-weight:400;}
   footer .tag{font-weight:800;color:var(--black);}
@@ -209,7 +210,7 @@
   <!-- 섹션 1: 계좌 등록 (공통) -->
   <section>
     <div class="sec-head"><div class="sec-num">1</div><h2>결제 계좌 등록하기</h2></div>
-    <p class="sec-desc">계좌는 한 번만 등록하면 돼요.<br>옆으로 넘기면 순서대로 볼 수 있어요.</p>
+    <p class="sec-desc">계좌는 한 번만 등록하면 돼요.<br>아래 순서대로 따라 해보세요.</p>
 
     <div class="carousel" data-car="signup">
       <div class="track">
@@ -375,43 +376,6 @@
 
 </div>
 
-<script>
-  document.querySelectorAll('.carousel').forEach(function(car){
-    var track=car.querySelector('.track');
-    var slides=car.querySelectorAll('.slide');
-    var dotsBox=car.querySelector('.dots');
-    var counter=car.querySelector('.counter');
-    var prev=car.querySelector('.prev');
-    var next=car.querySelector('.next');
-    var n=slides.length, cur=0;
-    // build dots
-    slides.forEach(function(_,i){
-      var d=document.createElement('div'); d.className='dot2'+(i===0?' on':''); dotsBox.appendChild(d);
-    });
-    var dots=dotsBox.querySelectorAll('.dot2');
-    function update(){
-      dots.forEach(function(d,i){d.classList.toggle('on',i===cur)});
-      counter.textContent=(cur+1)+' / '+n;
-      prev.disabled=(cur===0); next.disabled=(cur===n-1);
-    }
-    function goto(i){
-      cur=Math.max(0,Math.min(n-1,i));
-      track.scrollTo({left:slides[cur].offsetLeft-track.offsetLeft,behavior:'smooth'});
-      update();
-    }
-    prev.addEventListener('click',function(){goto(cur-1)});
-    next.addEventListener('click',function(){goto(cur+1)});
-    // sync on manual swipe
-    var t;
-    track.addEventListener('scroll',function(){
-      clearTimeout(t);
-      t=setTimeout(function(){
-        var idx=Math.round(track.scrollLeft/slides[0].offsetWidth);
-        if(idx!==cur){cur=idx;update();}
-      },80);
-    });
-    update();
-  });
-</script>
+
 </body>
 </html>
