@@ -19,7 +19,7 @@
   header p b{font-weight:800;}
 
   .warn{margin:16px 16px 0;background:var(--white);border:2px solid var(--green);border-radius:14px;padding:14px 15px;}
-  .warn b{font-size:16.5px;font-weight:900;display:block;margin-bottom:6px;line-height:1.35;}
+  .warn b{font-size:14px;font-weight:900;display:block;margin-bottom:6px;line-height:1.35;word-break:keep-all;}
   .warn b span{color:var(--green);}
   .warn p{font-size:14.5px;font-weight:500;line-height:1.6;}
   .warn p b{display:inline;font-size:17px;color:var(--green);font-weight:800;}
@@ -74,12 +74,12 @@
   .final-cta .t{font-size:19px;font-weight:900;line-height:1.4;letter-spacing:-.02em;}
   .final-cta .s{font-size:13.5px;font-weight:500;opacity:.92;margin-top:8px;}
   /* 계좌등록 안심 배지 */
-  .reassure{display:inline-flex;align-items:center;gap:7px;background:rgba(3,199,90,.12);color:#02A94D;font-size:13px;font-weight:800;padding:7px 13px;border-radius:20px;margin:0 2px 6px;}
+  .reassure{display:inline-flex;align-items:center;gap:7px;background:var(--white);color:var(--black);border:1.5px solid var(--black);font-size:13px;font-weight:800;padding:7px 13px;border-radius:20px;margin:0 2px 6px;}
 
   /* 1·2번: 가로 슬라이드 (peek + 화살표 강조) */
-  .hcar .track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px;padding-right:44px;}
+  .hcar .track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px;padding-right:24px;}
   .hcar .track::-webkit-scrollbar{display:none}
-  .hcar .slide{flex:0 0 86%;scroll-snap-align:start;padding:2px 0 0;border-top:none;}
+  .hcar .slide{flex:0 0 92%;scroll-snap-align:start;padding:2px 0 0;border-top:none;}
   .hcar .slide .num{margin-left:2px;margin-right:2px;}
   .hcar .slide .t{padding:0 2px;}
   .hcar .slide .d{padding:0 2px;}
@@ -89,9 +89,9 @@
   .hcar .dot2.on{background:var(--green);}
   .hcar .counter{font-size:14px;font-weight:800;color:var(--black);}
   /* 넘김 안내 배지 */
-  .swipe-tip{display:inline-flex;align-items:center;gap:6px;background:rgba(3,199,90,.12);color:var(--green-dk,#02A94D);font-size:12.5px;font-weight:800;padding:6px 12px;border-radius:20px;margin:0 2px 12px;}
+  .swipe-tip{display:inline-flex;align-items:center;gap:6px;background:var(--white);color:var(--black);border:1.5px solid var(--black);font-size:12.5px;font-weight:800;padding:6px 12px;border-radius:20px;margin:0 2px 12px;}
   /* 접이식 안 가로 슬라이드: 좌우 여백 확보 */
-  .acc .inner .hcar .track{padding-left:0;padding-right:44px;padding-top:6px;}
+  .acc .inner .hcar .track{padding-left:0;padding-right:24px;padding-top:6px;}
   .acc .inner .hcar .ctrl{padding-left:24px;padding-right:24px;}
   .acc .inner .hcar .slide .num{margin-left:20px;}
   .acc .inner .hcar .slide .t{padding-left:20px;}
@@ -167,12 +167,12 @@
 
   <header>
     <div class="kicker">광화문D타워 · NAVER PAY</div>
-    <h1>광화문D타워에서<br>10% 적립받으세요</h1>
-    <p>점심부터 카페·디저트까지, 광화문D타워 25개 브랜드에서<br>네이버페이 <b>머니·포인트로 결제</b>하면 결제금액의 10%를 적립해 드려요.</p>
+    <h1>오늘부터 광화문D타워는<br>네이버페이로 결제하세요</h1>
+    <p>광화문D타워 25개 브랜드에서<br>네이버페이 <b>머니·포인트로 결제</b>하면 결제금액의 10%를 적립해 드려요.</p>
   </header>
 
   <div class="warn">
-    <b><span>！</span> ‘네이버페이 카드’로 결제하면<br>적립되지 않아요</b>
+    <b><span>！</span> ‘네이버페이 카드’로 결제하면 적립되지 않아요</b>
     <p>적립은 <b>머니·포인트로 결제</b>할 때만 됩니다.<br>결제 전 결제 수단을 확인해 주세요.</p>
   </div>
 
