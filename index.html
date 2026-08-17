@@ -118,8 +118,7 @@
   .hcar .track::-webkit-scrollbar{display:none}
   .hcar .slide{flex:0 0 92%;scroll-snap-align:start;padding:2px 0 0;border-top:none;}
   .hcar 
-  .hcar 
-  .slide .t .stepnum{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--green);color:#fff;font-size:13px;font-weight:900;margin-right:8px;vertical-align:middle;}
+  
   .slide .t{padding:0 2px;}
   .hcar .slide .d{padding:0 2px;}
   .hcar .ctrl{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px;}
@@ -140,7 +139,8 @@
   .track{display:block;}
   .slide{padding:16px 0 4px;border-top:1px solid var(--line);}
   .track .slide:first-child{border-top:none;}
-  .slide .t{font-size:18.5px;font-weight:900;letter-spacing:-.015em;padding:0 12px;}
+  .slide .t{font-size:18.5px;font-weight:900;letter-spacing:-.015em;padding:0 12px;display:flex;flex-direction:column;align-items:flex-start;gap:9px;}
+  .slide .t .stepnum{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:var(--green);color:#fff;font-size:15px;font-weight:900;}
   .slide .d{font-size:15px;font-weight:500;margin-top:7px;line-height:1.6;min-height:2.6em;padding:0 12px;}
   .slide .d b{font-weight:800;color:var(--green);}
   .slide .shot{margin-top:11px;border-radius:14px;overflow:hidden;border:1px solid var(--line);}
