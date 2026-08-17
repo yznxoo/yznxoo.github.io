@@ -8,11 +8,15 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquareNeo@1.0/nanumsquareneo.css" rel="stylesheet">
 <style>
-  :root{--green:#03C75A;--black:#111111;--white:#FFFFFF;--line:rgba(17,17,17,.12);--soft:rgba(17,17,17,.55);}
+  /* 초록(#03C75A)은 '배경/면'으로만 사용. 흰 배경 위 정보 텍스트는 --black.
+     초록 위 글자도 --black (대비 8.47:1). 검정 배경 위 초록 텍스트는 그대로 사용. */
+  :root{--green:#03C75A;--green-soft:rgba(3,199,90,.10);--black:#111111;--white:#FFFFFF;--line:rgba(17,17,17,.12);--soft:rgba(17,17,17,.68);}
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{font-family:'NanumSquareNeo','Apple SD Gothic Neo',sans-serif;background:var(--white);color:var(--black);line-height:1.62;-webkit-font-smoothing:antialiased;word-break:keep-all;}
   .wrap{max-width:480px;margin:0 auto;background:var(--white);min-height:100vh;}
+  :focus-visible{outline:3px solid var(--green);outline-offset:2px;}
+
   /* 히어로 로고 롤링 */
   .rollwrap{margin:22px -22px 0;overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
   .rolltrack{display:flex;gap:12px;width:max-content;animation:rollx 42s linear infinite;}
@@ -24,143 +28,125 @@
   .hero-cap{display:inline-block;border:1.5px solid rgba(255,255,255,.6);border-radius:22px;padding:7px 18px;font-size:13px;font-weight:800;margin:16px 0 14px;}
   .kicker{font-size:13px;font-weight:800;letter-spacing:.12em;text-align:left;}
   header h1{font-size:28px;font-weight:900;margin-top:11px;line-height:1.3;letter-spacing:-.025em;}
-  .benefit .warn-row{color:var(--black);}
-  .benefit .warn-row b{color:#E5484D;font-weight:900;}
-  .paytable{margin:24px 16px 0;background:var(--white);border:2px solid var(--green);border-radius:16px;padding:20px 18px;}
-  .pt-title{text-align:center;font-size:16px;font-weight:900;margin-bottom:14px;}
-  .pt-title .g{color:var(--green);}
-  .pt-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:12px;overflow:hidden;border:1px solid var(--line);}
-  .pt-head{background:var(--black);color:#fff;font-size:13.5px;font-weight:800;text-align:center;padding:11px 8px;}
-  .pt-cell{font-size:15px;font-weight:700;text-align:center;padding:13px 8px;border-top:1px solid var(--line);}
-  .pt-cell.g{color:var(--green);font-weight:900;}
-  .pt-grid .pt-cell:nth-child(odd){border-right:1px solid var(--line);}
-  .pt-note{text-align:center;font-size:12px;color:var(--soft);margin-top:12px;}
-  .pt-max{text-align:center;font-size:14px;margin-top:6px;}
-  .pt-max b{color:var(--green);font-weight:900;}
+
   .benefit{margin:16px 16px 0;border:2px solid var(--green);border-radius:14px;padding:16px 15px;}
   .benefit .row{display:flex;gap:9px;font-size:15px;font-weight:500;align-items:baseline;}
   .benefit .row+.row{margin-top:6px;}
   .benefit .dot{color:var(--green);font-weight:900;}
-  .benefit strong{color:var(--green);font-weight:800;}
+  .benefit strong{color:var(--black);font-weight:900;}
+  .benefit .warn-row{color:var(--black);}
+  .benefit .warn-row b{color:#C4262B;font-weight:900;}
+
+  /* 대상 매장 바로가기 앵커 */
+  .anchor-link{display:flex;align-items:center;justify-content:center;gap:6px;margin:12px 16px 0;padding:13px;border:1.5px solid var(--line);border-radius:12px;background:var(--white);color:var(--black);text-decoration:none;font-size:14px;font-weight:800;-webkit-tap-highlight-color:transparent;}
+  .anchor-link:active{background:var(--green-soft);}
+
+  .paytable{margin:16px 16px 0;background:var(--white);border:2px solid var(--green);border-radius:16px;padding:20px 18px;}
+  .pt-title{text-align:center;font-size:16px;font-weight:900;margin-bottom:14px;}
+  .pt-title .g{background:var(--green);color:var(--black);padding:2px 9px;border-radius:7px;}
+  .pt-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:12px;overflow:hidden;border:1px solid var(--line);}
+  .pt-head{background:var(--black);color:#fff;font-size:13.5px;font-weight:800;text-align:center;padding:11px 8px;}
+  .pt-cell{font-size:15px;font-weight:700;text-align:center;padding:13px 8px;border-top:1px solid var(--line);}
+  .pt-cell.g{color:var(--black);font-weight:900;background:var(--green-soft);}
+  .pt-cell.g .lim{display:block;font-size:11.5px;font-weight:700;color:var(--soft);}
+  .pt-grid .pt-cell:nth-child(odd){border-right:1px solid var(--line);}
+  .pt-note{text-align:center;font-size:12.5px;color:var(--soft);margin-top:12px;}
+  .pt-max{text-align:center;font-size:14px;margin-top:6px;}
+  .pt-max b{color:var(--black);font-weight:900;}
 
   section{padding:0 16px;}
   .sec-head{display:flex;align-items:center;gap:11px;margin:28px 0 6px;}
-  
   .sec-head h2{font-size:21px;font-weight:900;letter-spacing:-.02em;}
   .sec-desc{font-size:14px;font-weight:500;color:var(--soft);margin:0 2px 16px;}
-
-  /* accordion */
   .pick{font-size:14.5px;font-weight:500;margin:0 2px 15px;line-height:1.65;}
-  .pick b{font-weight:800;color:var(--green);}
+  .pick b{font-weight:800;color:var(--black);}
 
   .merge{display:flex;align-items:center;gap:12px;margin:20px 2px 0;}
-  .merge::before,.merge::after{content:"";flex:1;height:1px;background:var(--green);opacity:.4;}
-  .merge span{font-size:12px;font-weight:800;color:var(--green);white-space:nowrap;}
+  .merge::before,.merge::after{content:"";flex:1;height:1px;background:var(--green);opacity:.5;}
+  .merge span{font-size:12px;font-weight:800;color:var(--black);white-space:nowrap;}
 
-  /* ===== carousel ===== */
-  .carousel{margin-top:4px;}
-  /* 앱 선택 탭 */
-  .apptabs{margin-top:4px;}
+  /* 탭 */
   .tabbtns{display:flex;gap:8px;margin-bottom:14px;}
   .tabbtn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 10px;border:2px solid var(--line);border-radius:12px;background:var(--white);font-family:inherit;font-size:15px;font-weight:800;color:var(--soft);cursor:pointer;transition:.15s;-webkit-tap-highlight-color:transparent;}
   .tabbtn .app{width:24px;height:24px;border-radius:7px;background:var(--soft);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;transition:.15s;}
-  .tabbtn .app.dk{background:var(--soft);}
-  .tabbtn.on{border-color:var(--green);color:var(--black);}
-  .tabbtn.on .app{background:var(--green);}
-  .tabbtn.on .app.dk{background:var(--black);}
+  .tabbtn.on{border-color:var(--green);background:var(--green-soft);color:var(--black);}
+  .tabbtn.on .app{background:var(--green);color:var(--black);}
+  .tabbtn.on .app.dk{background:var(--black);color:#fff;}
   .tabpanel{display:none;}
   .tabpanel.on{display:block;}
-  
-  /* 결제 방법 갈림길 */
+  .apptabs{margin-top:4px;}
   .gatetabs{margin-top:2px;}
   .gatetab{flex-direction:column;gap:3px;padding:14px 8px;line-height:1.3;}
-  .gatetab .sub{font-size:11.5px;font-weight:700;color:var(--soft);}
-  .gatetab.on .sub{color:var(--green);}
-  
+  .gatetab .sub{font-size:12px;font-weight:700;color:var(--soft);}
+  .gatetab.on .sub{color:var(--black);}
+  .steptabs{margin-top:2px;}
+  .steptab{flex-direction:column;gap:3px;padding:12px 8px;border:2px solid var(--line);}
+  .steptab .stepno{font-size:11.5px;font-weight:900;color:var(--soft);letter-spacing:.03em;}
+  .steptab.on .stepno{color:var(--black);}
+
+  /* 바로 결제 (3스텝) */
+  .quickpay{margin-top:4px;background:var(--white);border:2px solid var(--green);border-radius:16px;padding:22px 18px;}
   .qs-slide{padding:4px 0 8px;}
   .qs-slide + .qs-slide{border-top:1px solid var(--line);padding-top:16px;}
   .qs-slide .t{font-size:18.5px;font-weight:900;letter-spacing:-.015em;display:flex;flex-direction:column;align-items:flex-start;gap:9px;}
-  .qs-slide .t .stepnum{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:var(--green);color:#fff;font-size:15px;font-weight:900;}
   .qs-slide .d{font-size:15px;font-weight:500;margin-top:7px;line-height:1.6;}
-  .qs-slide .d b{font-weight:800;color:var(--green);}
-  .qs-slide .shot{margin-top:11px;border-radius:14px;overflow:hidden;border:1px solid var(--line);display:flex;justify-content:center;background:var(--white);}
+  .qs-slide .d b{font-weight:900;color:var(--black);}
+  .qs-slide .shot{margin-top:11px;border-radius:14px;overflow:hidden;border:1px solid var(--line);display:flex;justify-content:center;align-items:center;background:var(--white);min-height:420px;}
   .qs-slide .shot img{max-height:420px;width:auto;max-width:100%;display:block;}
+  .stepnum{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:var(--green);color:var(--black);font-size:15px;font-weight:900;flex:0 0 auto;}
 
-  .quickpay{margin-top:4px;background:var(--white);border:2px solid var(--green);border-radius:16px;padding:22px 18px;}
+  /* 잔액 부족 경고 */
+  .alert{display:flex;gap:9px;align-items:flex-start;margin-top:10px;padding:12px 13px;border-radius:11px;background:rgba(196,38,43,.07);border:1.5px solid rgba(196,38,43,.35);font-size:14px;font-weight:700;line-height:1.5;color:var(--black);}
+  .alert .ico{flex:0 0 auto;width:20px;height:20px;border-radius:50%;background:#C4262B;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;margin-top:1px;}
 
-  
-
-  .steptab{flex-direction:column;gap:3px;padding:12px 8px;}
-  .steptab .stepno{font-size:11px;font-weight:900;color:var(--soft);letter-spacing:.03em;}
-  .steptab.on .stepno{color:var(--green);}
-  .steptab.on{border-color:var(--green);background:rgba(3,199,90,.06);}
-  .steptab{border:2px solid var(--line);}
-
-  .steptabs{margin-top:2px;}
-  .step-next{display:block;width:calc(100% - 4px);margin:18px 2px 2px;padding:15px;border:2px solid var(--green);border-radius:12px;background:var(--white);color:var(--green);font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:.15s;}
+  .step-next{display:block;width:calc(100% - 4px);margin:18px 2px 2px;padding:15px;border:none;border-radius:12px;background:var(--green);color:var(--black);font-family:inherit;font-size:15px;font-weight:900;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:.15s;}
   .step-next:active{transform:scale(.98);}
+  .step-next.ghost{background:var(--white);border:2px solid var(--green);color:var(--black);font-weight:800;}
 
-  
-  /* 최종 CTA */
-  /* 결제 전 확인 CHECK */
-  .check{margin-top:8px;}
-  .checkcard{margin:0 16px;background:var(--white);border:2px solid var(--green);border-radius:16px;padding:20px 18px;}
-  .checkcard .chk{display:flex;align-items:flex-start;gap:10px;font-size:15px;font-weight:600;line-height:1.5;padding:9px 0;border-bottom:1px solid var(--line);word-break:keep-all;}
-  .checkcard .chk:nth-child(3){border-bottom:none;}
-  .checkcard .chk .ck{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;margin-top:1px;}
-  .checkcard .chk b{font-weight:900;display:inline;}
-  .checkcard .chk-note{font-size:11.5px;color:var(--soft);line-height:1.5;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);}
-  .final-cta{margin:28px 16px 40px;background:var(--black);color:#fff;border-radius:16px;padding:28px 22px;text-align:center;}
-  .final-cta .t{font-size:20px;font-weight:900;line-height:1.45;letter-spacing:-.02em;}
-  .final-cta .s{font-size:14px;font-weight:500;color:rgba(255,255,255,.85);margin-top:10px;line-height:1.5;}
-  /* 계좌등록 안심 배지 */
-
-  /* 1·2번: 가로 슬라이드 (peek + 화살표 강조) */
-  .hcar .track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px;padding-right:24px;}
+  /* 가로 슬라이드 */
+  .carousel{margin-top:4px;}
+  .hcar .track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px;padding-right:36px;}
   .hcar .track::-webkit-scrollbar{display:none}
   .hcar .slide{flex:0 0 92%;scroll-snap-align:start;padding:2px 0 0;border-top:none;}
-  .slide .t{padding:0 12px;}
-  .hcar .slide .d{padding:0 12px;}
   .hcar .ctrl{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px;}
-  .hcar .arrow{width:44px;height:44px;border-radius:50%;border:none;background:var(--green);color:#fff;font-size:20px;font-weight:900;box-shadow:0 3px 10px rgba(3,199,90,.3);}
-  .hcar .arrow[disabled]{background:var(--line);color:rgba(17,17,17,.3);box-shadow:none;}
+  .hcar .arrow{width:44px;height:44px;border-radius:50%;border:none;background:var(--green);color:var(--black);font-size:20px;font-weight:900;box-shadow:0 3px 10px rgba(3,199,90,.3);}
+  .hcar .arrow[disabled]{background:var(--line);color:rgba(17,17,17,.35);box-shadow:none;}
   .hcar .dot2.on{background:var(--green);}
   .hcar .counter{font-size:14px;font-weight:800;color:var(--black);}
-  /* 넘김 안내 배지 */
-  /* 접이식 안 가로 슬라이드: 좌우 여백 확보 */
 
   .track{display:block;}
   .slide{padding:16px 0 4px;border-top:1px solid var(--line);}
   .track .slide:first-child{border-top:none;}
   .slide .t{font-size:18.5px;font-weight:900;letter-spacing:-.015em;padding:0 12px;display:flex;flex-direction:column;align-items:flex-start;gap:9px;}
-  .slide .t .stepnum{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:var(--green);color:#fff;font-size:15px;font-weight:900;}
   .slide .d{font-size:15px;font-weight:500;margin-top:7px;line-height:1.6;min-height:2.6em;padding:0 12px;}
-  .slide .d b{font-weight:800;color:var(--green);}
-  .slide .shot{margin:11px 12px 0 12px;border-radius:14px;overflow:hidden;border:1px solid var(--line);}
-  .slide .shot{display:flex;justify-content:center;background:var(--white);}
+  .slide .d b{font-weight:900;color:var(--black);}
+  .slide .shot{margin:11px 12px 0 12px;border-radius:14px;overflow:hidden;border:1px solid var(--line);display:flex;justify-content:center;align-items:center;background:var(--white);min-height:420px;}
   .slide .shot img{max-height:420px;width:auto;max-width:100%;display:block;}
 
-  /* controls */
   .ctrl{display:none;align-items:center;justify-content:center;gap:14px;margin-top:14px;}
-  .arrow{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line);background:var(--white);
-    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--black);
-    flex:0 0 auto;transition:.15s;-webkit-tap-highlight-color:transparent;}
+  .arrow{display:flex;align-items:center;justify-content:center;cursor:pointer;flex:0 0 auto;transition:.15s;-webkit-tap-highlight-color:transparent;}
   .arrow:active{transform:scale(.92)}
-  .arrow[disabled]{opacity:.28;cursor:default}
+  .arrow[disabled]{cursor:default}
   .dots{display:flex;gap:6px;align-items:center;}
   .dot2{width:7px;height:7px;border-radius:50%;background:var(--line);transition:.2s;}
   .dot2.on{background:var(--green);width:20px;border-radius:4px;}
   .counter{font-size:12.5px;font-weight:800;color:var(--soft);min-width:42px;text-align:center;}
 
-  
+  /* 결제 전 확인 */
+  .check{margin-top:8px;}
+  .checkcard{margin:0 16px;background:var(--white);border:2px solid var(--green);border-radius:16px;padding:20px 18px;}
+  .checkcard .chk{display:flex;align-items:flex-start;gap:10px;font-size:15px;font-weight:600;line-height:1.5;padding:9px 0;border-bottom:1px solid var(--line);word-break:keep-all;}
+  .checkcard .chk:last-of-type{border-bottom:none;}
+  .checkcard .chk .ck{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--green);color:var(--black);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;margin-top:1px;}
+  .checkcard .chk b{font-weight:900;display:inline;}
+  .checkcard .chk-note{font-size:12.5px;color:var(--soft);line-height:1.6;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);}
 
-  /* 대상 매장 섹션 */
+  /* 대상 매장 */
   .stores{margin-top:28px;background:var(--black);color:var(--white);padding:28px 16px 30px;}
   .stores .cap{display:flex;justify-content:center;margin-bottom:14px;}
   .stores .cap span{border:1.5px solid rgba(255,255,255,.5);border-radius:20px;padding:6px 16px;font-size:13px;font-weight:800;}
   .stores h3{text-align:center;font-size:23px;font-weight:900;letter-spacing:-.02em;}
-  .stores .sub2{text-align:center;font-size:11.5px;color:rgba(255,255,255,.45);margin-top:4px;font-weight:400;}
-  .stores .sub2 span{color:rgba(255,255,255,.6);}
+  .stores .sub2{text-align:center;font-size:12px;color:rgba(255,255,255,.62);margin-top:6px;font-weight:400;}
   .cat{margin-top:24px;}
   .cat .clabel{font-size:13px;font-weight:800;color:var(--green);margin:0 4px 12px;}
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px 10px;}
@@ -168,16 +154,20 @@
   a.brand:active .badge{transform:scale(.94);transition:transform .1s;}
   .brand .badge{width:74px;height:74px;border-radius:50%;background:var(--white);overflow:hidden;display:flex;align-items:center;justify-content:center;}
   .brand .badge img{width:100%;height:100%;object-fit:contain;}
-
   .brand .bn{font-size:13px;font-weight:700;text-align:center;line-height:1.32;word-break:keep-all;}
 
-  footer{text-align:center;padding:28px 16px 36px;color:var(--soft);font-size:11.5px;font-weight:400;}
-  footer .tag{font-weight:800;color:var(--black);}
+  a.final-cta{display:block;text-decoration:none;color:#fff;}
+  .final-cta{margin:28px 16px 40px;background:var(--black);border-radius:16px;padding:28px 22px;text-align:center;}
+  .final-cta .t{font-size:20px;font-weight:900;line-height:1.45;letter-spacing:-.02em;}
+  .final-cta .s{font-size:14px;font-weight:500;color:rgba(255,255,255,.85);margin-top:10px;line-height:1.5;}
+  .final-cta .cta-btn{display:inline-block;margin-top:18px;background:var(--green);color:var(--black);font-size:15px;font-weight:900;padding:13px 26px;border-radius:12px;}
 
+  footer{text-align:center;padding:28px 16px 36px;color:var(--soft);font-size:12px;font-weight:400;}
+  footer .tag{font-weight:800;color:var(--black);}
 
   @media (prefers-reduced-motion: reduce){
     .rolltrack{animation:none !important;}
-    *{scroll-behavior:auto !important;}
+    *{scroll-behavior:auto !important;transition:none !important;}
   }
 </style>
 </head>
@@ -187,7 +177,7 @@
   <header>
     <div class="kicker">광화문D타워 · NAVER PAY</div>
     <div class="hero-cap">최대 5만 원 혜택</div>
-    <h1>방금 그 주문,<br>네이버페이로 결제하면<br><span style="color:var(--green)">10% 즉시 돌려받아요</span></h1>
+    <h1>방금 그 주문,<br>네이버페이로 결제하면<br><span style="color:var(--green)">10% 돌려받아요</span></h1>
     <div class="rollwrap">
       <div class="rolltrack"><div class="rlogo"><img src="logo-gocheongdam.jpg" alt=""></div><div class="rlogo"><img src="logo-ghmseokgalbi.jpg" alt=""></div><div class="rlogo"><img src="logo-drrobin.jpg" alt=""></div><div class="rlogo"><img src="logo-deokhu.jpg" alt=""></div><div class="rlogo"><img src="logo-melting.jpg" alt=""></div><div class="rlogo"><img src="logo-brooklyn.jpg" alt=""></div><div class="rlogo"><img src="logo-yamaya.jpg" alt=""></div><div class="rlogo"><img src="logo-ontheborder.jpg" alt=""></div><div class="rlogo"><img src="logo-itamae.jpg" alt=""></div><div class="rlogo"><img src="logo-juyu.jpg" alt=""></div><div class="rlogo"><img src="logo-jjilhal.jpg" alt=""></div><div class="rlogo"><img src="logo-chaal.jpg" alt=""></div><div class="rlogo"><img src="logo-tamarind.jpg" alt=""></div><div class="rlogo"><img src="logo-pollys.jpg" alt=""></div><div class="rlogo"><img src="logo-raisondetre.jpg" alt=""></div><div class="rlogo"><img src="logo-susu.jpg" alt=""></div><div class="rlogo"><img src="logo-siopangya.jpg" alt=""></div><div class="rlogo"><img src="logo-indexcaramel.jpg" alt=""></div><div class="rlogo"><img src="logo-colectivo.jpg" alt=""></div><div class="rlogo"><img src="logo-acaibora.jpg" alt=""></div><div class="rlogo"><img src="logo-felt.jpg" alt=""></div><div class="rlogo"><img src="logo-fobi.jpg" alt=""></div><div class="rlogo"><img src="logo-hermann.jpg" alt=""></div><div class="rlogo"><img src="logo-kiwa.jpg" alt=""></div><div class="rlogo"><img src="logo-fibreno.jpg" alt=""></div><div class="rlogo"><img src="logo-gocheongdam.jpg" alt=""></div><div class="rlogo"><img src="logo-ghmseokgalbi.jpg" alt=""></div><div class="rlogo"><img src="logo-drrobin.jpg" alt=""></div><div class="rlogo"><img src="logo-deokhu.jpg" alt=""></div><div class="rlogo"><img src="logo-melting.jpg" alt=""></div><div class="rlogo"><img src="logo-brooklyn.jpg" alt=""></div><div class="rlogo"><img src="logo-yamaya.jpg" alt=""></div><div class="rlogo"><img src="logo-ontheborder.jpg" alt=""></div><div class="rlogo"><img src="logo-itamae.jpg" alt=""></div><div class="rlogo"><img src="logo-juyu.jpg" alt=""></div><div class="rlogo"><img src="logo-jjilhal.jpg" alt=""></div><div class="rlogo"><img src="logo-chaal.jpg" alt=""></div><div class="rlogo"><img src="logo-tamarind.jpg" alt=""></div><div class="rlogo"><img src="logo-pollys.jpg" alt=""></div><div class="rlogo"><img src="logo-raisondetre.jpg" alt=""></div><div class="rlogo"><img src="logo-susu.jpg" alt=""></div><div class="rlogo"><img src="logo-siopangya.jpg" alt=""></div><div class="rlogo"><img src="logo-indexcaramel.jpg" alt=""></div><div class="rlogo"><img src="logo-colectivo.jpg" alt=""></div><div class="rlogo"><img src="logo-acaibora.jpg" alt=""></div><div class="rlogo"><img src="logo-felt.jpg" alt=""></div><div class="rlogo"><img src="logo-fobi.jpg" alt=""></div><div class="rlogo"><img src="logo-hermann.jpg" alt=""></div><div class="rlogo"><img src="logo-kiwa.jpg" alt=""></div><div class="rlogo"><img src="logo-fibreno.jpg" alt=""></div></div>
     </div>
@@ -199,20 +189,22 @@
     <div class="row"><span class="dot">·</span><span>프로모션 기간 2026.9.1 ~ 9.30</span></div>
   </div>
 
+  <a class="anchor-link" href="#stores">우리 매장도 되나요? 대상 매장 보기 →</a>
+
   <div class="paytable">
     <div class="pt-title">결제할 때마다 <span class="g">10% 적립</span></div>
     <div class="pt-grid">
       <div class="pt-head">결제 금액</div><div class="pt-head">적립금</div>
       <div class="pt-cell">10,000원</div><div class="pt-cell g">1,000원</div>
-      <div class="pt-cell">55,000원</div><div class="pt-cell g">5,500원</div>
-      <div class="pt-cell">150,000원</div><div class="pt-cell g">10,000원</div>
+      <div class="pt-cell">50,000원</div><div class="pt-cell g">5,000원</div>
+      <div class="pt-cell">150,000원</div><div class="pt-cell g">10,000원<span class="lim">1회 최대</span></div>
     </div>
     <div class="pt-note">1회 최대 1만 원 · 기간 내 최대 5회</div>
     <div class="pt-max">최대 혜택을 다 받으면 <b>총 5만 원 적립</b></div>
   </div>
 
   <!-- 결제 방법: 갈림길 분기 -->
-  <section class="paygate">
+  <section class="paygate" id="pay">
     <div class="sec-head"><h2>결제 방법</h2></div>
     <p class="pick">네이버페이 머니·포인트가 있으신가요?</p>
     <div class="gatetabs">
@@ -220,196 +212,209 @@
         <button class="tabbtn gatetab on" data-tab="ready" aria-pressed="true">있어요<br><span class="sub">바로 결제</span></button>
         <button class="tabbtn gatetab" data-tab="new" aria-pressed="false">없어요<br><span class="sub">지금 등록</span></button>
       </div>
+
       <div class="tabpanel on" data-panel="ready">
         <div class="sec-head" style="margin-top:8px"><h2>이렇게 결제하세요</h2></div>
         <div class="quickpay">
           <div class="qs-slide">
-            <div class="t"><span class="stepnum">1</span>QR 결제 화면 열기</div>
-            <div class="d">네이버페이 앱에서 <b>QR 결제</b> 화면을 열어요.</div>
-            <div class="shot"><img loading="lazy" decoding="async" src="quick-qr.jpg" alt="QR 결제 화면"></div>
+            <div class="t"><span class="stepnum">1</span>현장결제 화면 열기</div>
+            <div class="d">네이버페이 앱에서 <b>현장결제</b> 화면을 열어요.</div>
+            <div class="shot"><img loading="lazy" decoding="async" src="quick-qr.jpg" alt="현장결제 화면"></div>
           </div>
           <div class="qs-slide">
-            <div class="t"><span class="stepnum">2</span>‘포인트·머니’인지 확인</div>
+            <div class="t"><span class="stepnum">2</span>‘포인트·머니’와 잔액 확인</div>
             <div class="d">결제 수단이 <b>포인트·머니</b>인지 확인해요.<br>카드면 ‘변경’ → 포인트·머니를 선택해요.</div>
-            <div class="shot"><img loading="lazy" decoding="async" src="quick-card.jpg" alt="카드 선택 화면"></div>
+            <div class="alert"><span class="ico">!</span><span>잔액이 결제 금액보다 적으면 결제가 진행되지 않아요. 계산 전에 미리 충전해 주세요.</span></div>
+            <div class="shot"><img loading="lazy" decoding="async" src="quick-card.jpg" alt="결제 수단 확인 화면"></div>
           </div>
           <div class="qs-slide">
-            <div class="t"><span class="stepnum">3</span>계산대에서 QR 스캔</div>
-            <div class="d">계산대에서 <b>QR을 스캔</b>하면 자동으로 10% 적립!</div>
+            <div class="t"><span class="stepnum">3</span>직원에게 결제 화면 보여주기</div>
+            <div class="d">계산할 때 <b>결제 화면을 직원에게 보여주면</b> 스캔해 드려요.<br>결제가 끝나면 10%가 자동으로 적립돼요.</div>
           </div>
         </div>
+        <button class="step-next ghost" data-jump="new">잔액이 부족한가요? 충전 방법 보기 →</button>
       </div>
+
       <div class="tabpanel" data-panel="new">
-<!-- 섹션 0: 시작하기 -->
-  <section>
-    <div class="sec-head"><h2>어떤 앱으로 시작할까요?</h2></div>
-    <p class="pick">쓰시는 앱을 골라 시작하세요.</p>
+        <!-- 시작하기 -->
+        <section>
+          <div class="sec-head"><h2>어떤 앱으로 시작할까요?</h2></div>
+          <p class="pick">쓰시는 앱을 골라 시작하세요.</p>
+          <div class="apptabs">
+            <div class="tabbtns">
+              <button class="tabbtn on" data-tab="pay" aria-pressed="true"><span class="app">P</span>네이버페이 앱</button>
+              <button class="tabbtn" data-tab="naver" aria-pressed="false"><span class="app dk">N</span>네이버 앱</button>
+            </div>
+            <div class="tabpanel on" data-panel="pay">
+              <div class="carousel hcar" data-car="pay">
+                <div class="track">
+                  <div class="slide">
+                    <div class="t">앱을 열고 잔액(금액)을 눌러 주세요</div>
+                    <div class="d"><b>‘계좌 연결 필요’</b>가 뜨면 <b>잔액</b>을 눌러요.</div>
+                    <div class="shot"><img loading="lazy" decoding="async" src="signup-01.jpg" alt="네이버페이 앱 홈에서 잔액 누르기"></div>
+                  </div>
+                  <div class="slide">
+                    <div class="t">계좌 추가를 눌러 주세요</div>
+                    <div class="d">결제에 쓸 <b>본인 명의 계좌</b>를 연결해요.</div>
+                    <div class="shot"><img loading="lazy" decoding="async" src="signup-02.jpg" alt="계좌 추가"></div>
+                  </div>
+                </div>
+                <div class="ctrl">
+                  <button class="arrow prev" aria-label="이전 단계">‹</button>
+                  <div class="dots"></div>
+                  <div class="counter"></div>
+                  <button class="arrow next" aria-label="다음 단계">›</button>
+                </div>
+              </div>
+            </div>
+            <div class="tabpanel" data-panel="naver">
+              <div class="carousel hcar" data-car="naver">
+                <div class="track">
+                  <div class="slide">
+                    <div class="t">pay 아이콘을 눌러 주세요</div>
+                    <div class="d">홈 <b>왼쪽 위</b>에 있어요.</div>
+                    <div class="shot"><img loading="lazy" decoding="async" src="naver-01.jpg" alt="네이버 앱 홈 pay"></div>
+                  </div>
+                  <div class="slide">
+                    <div class="t">현장결제를 눌러 주세요</div>
+                    <div class="d">매장에서 쓰는 <b>현장결제</b> 화면이에요.</div>
+                    <div class="shot"><img loading="lazy" decoding="async" src="naver-02.jpg" alt="현장결제"></div>
+                  </div>
+                  <div class="slide">
+                    <div class="t">출금계좌 등록하기를 눌러 주세요</div>
+                    <div class="d">결제에 쓸 <b>본인 명의 계좌</b>를 연결해요.</div>
+                    <div class="shot"><img loading="lazy" decoding="async" src="naver-03.jpg" alt="출금계좌 등록하기"></div>
+                  </div>
+                </div>
+                <div class="ctrl">
+                  <button class="arrow prev" aria-label="이전 단계">‹</button>
+                  <div class="dots"></div>
+                  <div class="counter"></div>
+                  <button class="arrow next" aria-label="다음 단계">›</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="merge"><span>여기서부터 두 방법 모두 같아요</span></div>
+        </section>
 
-    <div class="apptabs">
-      <div class="tabbtns">
-        <button class="tabbtn on" data-tab="pay" aria-pressed="true"><span class="app">P</span>네이버페이 앱</button>
-        <button class="tabbtn" data-tab="naver" aria-pressed="false"><span class="app dk">N</span>네이버 앱</button>
-      </div>
-      <div class="tabpanel on" data-panel="pay">
-        <div class="carousel hcar" data-car="pay">
-          <div class="track">
-            <div class="slide">
-              <div class="t">앱을 열고 잔액(금액)을 눌러 주세요</div>
-              <div class="d"><b>‘계좌 연결 필요’</b>가 뜨면 <b>잔액</b>을 눌러요.</div>
-              <div class="shot"><img loading="lazy" decoding="async" src="signup-01.jpg" alt="네이버페이 앱 홈에서 잔액 누르기"></div>
+        <!-- 계좌 등록 · 머니 충전 -->
+        <section>
+          <div class="sec-head"><h2>네이버페이로 결제해볼까요?</h2></div>
+          <div class="steptabs">
+            <div class="tabbtns">
+              <button class="tabbtn steptab on" data-tab="signup" aria-pressed="true"><span class="stepno">STEP 1</span>계좌 등록</button>
+              <button class="tabbtn steptab" data-tab="charge" aria-pressed="false"><span class="stepno">STEP 2</span>머니 충전</button>
             </div>
-            <div class="slide">
-              <div class="t">계좌 추가를 눌러 주세요</div>
-              <div class="shot"><img loading="lazy" decoding="async" src="signup-02.jpg" alt="계좌 추가"></div>
+
+            <div class="tabpanel on" data-panel="signup">
+              <p class="sec-desc">처음 한 번만 등록하면 계속 쓸 수 있어요. 약 3분 걸리고, 중간에 ARS 전화 인증이 있어요.</p>
+              <div class="carousel hcar" data-car="signup">
+                <div class="track">
+                  <div class="slide">
+                    <div class="t">약관에 동의해 주세요</div>
+                    <div class="d">필수 항목에 동의하면 다음으로 넘어가요.</div>
+                    <div class="shot"><img loading="lazy" decoding="async" src="signup-03.jpg" alt="약관 동의"></div>
+                  </div>
+                  <div class="slide">
+                    <div class="t">은행을 선택해 주세요</div>
+                    <div class="d"><b>본인 명의</b> 계좌만 연결돼요.</div>
+                    <div class="shot"><img loading="lazy" decoding="async" src="signup-04.jpg" alt="은행 선택"></div>
+                  </div>
+                  <div class="slide">
+                    <div class="t">계좌번호를 입력해 주세요</div>
+                    <div class="d"><b>‘-’ 없이</b> 입력해요.</div>
+                    <div class="shot"><img loading="lazy" decoding="async" src="signup-05.jpg" alt="계좌번호 입력"></div>
+                  </div>
+                  <div class="slide">
+                    <div class="t">인증 방법을 선택해 주세요</div>
+                    <div class="d"><b>ARS 전화 인증</b>이 가장 간편해요.</div>
+                    <div class="shot"><img loading="lazy" decoding="async" src="signup-06.jpg" alt="인증 방법 선택"></div>
+                  </div>
+                  <div class="slide">
+                    <div class="t">본인 정보를 입력해 주세요</div>
+                    <div class="d">이름·주민번호·휴대폰 번호를 입력해요.</div>
+                    <div class="shot"><img loading="lazy" decoding="async" src="signup-07.jpg" alt="본인 정보 입력"></div>
+                  </div>
+                  <div class="slide">
+                    <div class="t">ARS 전화로 인증해 주세요</div>
+                    <div class="d">전화가 오면 <b>화면 속 숫자</b>를 눌러요.</div>
+                    <div class="shot"><img loading="lazy" decoding="async" src="signup-08.jpg" alt="ARS 전화 인증"></div>
+                  </div>
+                  <div class="slide">
+                    <div class="t">1원 입금자명을 확인하면 완료!</div>
+                    <div class="d">입금자명 <b>‘N+소문자 4글자’</b>의 4글자를 입력해요.</div>
+                    <div class="shot"><img loading="lazy" decoding="async" src="signup-09.jpg" alt="1원 입금 확인"></div>
+                  </div>
+                </div>
+                <div class="ctrl">
+                  <button class="arrow prev" aria-label="이전 단계">‹</button>
+                  <div class="dots"></div>
+                  <div class="counter"></div>
+                  <button class="arrow next" aria-label="다음 단계">›</button>
+                </div>
+              </div>
+              <button class="step-next" data-goto="charge">머니 충전하러 가기 →</button>
+            </div>
+
+            <div class="tabpanel" data-panel="charge">
+              <p class="sec-desc">등록한 계좌에서 결제할 만큼 머니를 채워요.</p>
+              <div class="carousel hcar" data-car="charge">
+                <div class="track">
+                  <div class="slide">
+                    <div class="t">잔액(금액)을 눌러 주세요</div>
+                    <div class="d">홈 화면 <b>위쪽</b>에 있어요.</div>
+                    <div class="shot"><img loading="lazy" decoding="async" src="charge-01.jpg" alt="잔액 누르기"></div>
+                  </div>
+                  <div class="slide">
+                    <div class="t">머니 잔액을 눌러 주세요</div>
+                    <div class="d">머니 잔액 화면으로 들어가요.</div>
+                    <div class="shot"><img loading="lazy" decoding="async" src="charge-02.jpg" alt="머니 잔액"></div>
+                  </div>
+                  <div class="slide">
+                    <div class="t">충전을 눌러 주세요</div>
+                    <div class="d">등록한 계좌에서 머니를 채워요.</div>
+                    <div class="shot"><img loading="lazy" decoding="async" src="charge-03.jpg" alt="충전 누르기"></div>
+                  </div>
+                  <div class="slide">
+                    <div class="t">금액을 입력하고 충전해 주세요</div>
+                    <div class="d">결제할 금액보다 <b>조금 넉넉히</b> 충전해 주세요.<br>남은 머니는 다음에 그대로 쓸 수 있어요.</div>
+                    <div class="shot"><img loading="lazy" decoding="async" src="charge-04.jpg" alt="금액 입력"></div>
+                  </div>
+                  <div class="slide">
+                    <div class="t">충전 완료, 준비 끝!</div>
+                    <div class="d">이제 <b>머니로 결제</b>하면 10% 적립돼요.</div>
+                    <div class="shot"><img loading="lazy" decoding="async" src="charge-05.jpg" alt="충전 완료"></div>
+                  </div>
+                </div>
+                <div class="ctrl">
+                  <button class="arrow prev" aria-label="이전 단계">‹</button>
+                  <div class="dots"></div>
+                  <div class="counter"></div>
+                  <button class="arrow next" aria-label="다음 단계">›</button>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="ctrl">
-            <button class="arrow prev" aria-label="이전">‹</button>
-            <div class="dots"></div>
-            <div class="counter"></div>
-            <button class="arrow next" aria-label="다음">›</button>
-          </div>
-        </div>
-      </div>
-      <div class="tabpanel" data-panel="naver">
-        <div class="carousel hcar" data-car="naver">
-          <div class="track">
-            <div class="slide">
-              <div class="t">pay 아이콘을 눌러 주세요</div>
-              <div class="d">홈 <b>왼쪽 위</b>에 있어요.</div>
-              <div class="shot"><img loading="lazy" decoding="async" src="naver-01.jpg" alt="네이버 앱 홈 pay"></div>
-            </div>
-            <div class="slide">
-              <div class="t">현장결제를 눌러 주세요</div>
-              <div class="shot"><img loading="lazy" decoding="async" src="naver-02.jpg" alt="현장결제"></div>
-            </div>
-            <div class="slide">
-              <div class="t">출금계좌 등록하기를 눌러 주세요</div>
-              <div class="shot"><img loading="lazy" decoding="async" src="naver-03.jpg" alt="출금계좌 등록하기"></div>
-            </div>
-          </div>
-          <div class="ctrl">
-            <button class="arrow prev" aria-label="이전">‹</button>
-            <div class="dots"></div>
-            <div class="counter"></div>
-            <button class="arrow next" aria-label="다음">›</button>
-          </div>
-        </div>
+        </section>
       </div>
     </div>
-    <div class="merge"><span>여기서부터 두 방법 모두 같아요</span></div>
   </section>
 
-  <!-- 섹션 1: 계좌 등록 (공통) -->
-  <section>
-    <div class="sec-head"><h2>네이버페이로 결제해볼까요?</h2></div>
-    <div class="steptabs">
-      <div class="tabbtns">
-        <button class="tabbtn steptab on" data-tab="signup" aria-pressed="true"><span class="stepno">STEP 1</span>계좌 등록</button>
-        <button class="tabbtn steptab" data-tab="charge" aria-pressed="false"><span class="stepno">STEP 2</span>머니 충전</button>
-      </div>
-      <div class="tabpanel on" data-panel="signup">
-        <p class="sec-desc">처음 한 번만 등록하면 계속 쓸 수 있어요.</p>
-    <div class="carousel hcar" data-car="signup">
-      <div class="track">
-        <div class="slide">
-          <div class="t">약관에 동의해 주세요</div>
-          <div class="shot"><img loading="lazy" decoding="async" src="signup-03.jpg" alt="약관 동의"></div>
-        </div>
-        <div class="slide">
-          <div class="t">은행을 선택해 주세요</div>
-          <div class="d"><b>본인 명의</b> 계좌만 연결돼요.</div>
-          <div class="shot"><img loading="lazy" decoding="async" src="signup-04.jpg" alt="은행 선택"></div>
-        </div>
-        <div class="slide">
-          <div class="t">계좌번호를 입력해 주세요</div>
-          <div class="d"><b>‘-’ 없이</b> 입력해요.</div>
-          <div class="shot"><img loading="lazy" decoding="async" src="signup-05.jpg" alt="계좌번호 입력"></div>
-        </div>
-        <div class="slide">
-          <div class="t">인증 방법을 선택해 주세요</div>
-          <div class="d"><b>ARS 전화 인증</b>이 가장 간편해요.</div>
-          <div class="shot"><img loading="lazy" decoding="async" src="signup-06.jpg" alt="인증 방법 선택"></div>
-        </div>
-        <div class="slide">
-          <div class="t">본인 정보를 입력해 주세요</div>
-          <div class="d">이름·주민번호·휴대폰 번호를 입력해요.</div>
-          <div class="shot"><img loading="lazy" decoding="async" src="signup-07.jpg" alt="본인 정보 입력"></div>
-        </div>
-        <div class="slide">
-          <div class="t">ARS 전화로 인증해 주세요</div>
-          <div class="d">전화가 오면 <b>화면 속 숫자</b>를 눌러요.</div>
-          <div class="shot"><img loading="lazy" decoding="async" src="signup-08.jpg" alt="ARS 전화 인증"></div>
-        </div>
-        <div class="slide">
-          <div class="t">1원 입금자명을 확인하면 완료!</div>
-          <div class="d">입금자명 <b>‘N+소문자 4글자’</b>의 4글자를 입력해요.</div>
-          <div class="shot"><img loading="lazy" decoding="async" src="signup-09.jpg" alt="1원 입금 확인"></div>
-        </div>
-      </div>
-      <div class="ctrl">
-        <button class="arrow prev" aria-label="이전">‹</button>
-        <div class="dots"></div>
-        <div class="counter"></div>
-        <button class="arrow next" aria-label="다음">›</button>
-      </div>
-    </div>
-      <button class="step-next" data-goto="charge">머니 충전하러 가기 →</button>
-      </div>
-      <div class="tabpanel" data-panel="charge">
-        <p class="sec-desc">등록한 계좌에서 결제할 만큼 머니를 채워요.</p>
-    <div class="carousel hcar" data-car="charge">
-      <div class="track">
-        <div class="slide">
-          <div class="t">잔액(금액)을 눌러 주세요</div>
-          <div class="shot"><img loading="lazy" decoding="async" src="charge-01.jpg" alt="잔액 누르기"></div>
-        </div>
-        <div class="slide">
-          <div class="t">머니 잔액을 눌러 주세요</div>
-          <div class="shot"><img loading="lazy" decoding="async" src="charge-02.jpg" alt="머니 잔액"></div>
-        </div>
-        <div class="slide">
-          <div class="t">충전을 눌러 주세요</div>
-          <div class="shot"><img loading="lazy" decoding="async" src="charge-03.jpg" alt="충전 누르기"></div>
-        </div>
-        <div class="slide">
-          <div class="t">금액을 입력하고 충전해 주세요</div>
-          <div class="d"><b>+1만·+5만·+10만</b>을 골라도 돼요.</div>
-          <div class="shot"><img loading="lazy" decoding="async" src="charge-04.jpg" alt="금액 입력"></div>
-        </div>
-        <div class="slide">
-          <div class="t">충전 완료, 준비 끝!</div>
-          <div class="d">이제 <b>머니로 결제</b>하면 10% 적립돼요.</div>
-          <div class="shot"><img loading="lazy" decoding="async" src="charge-05.jpg" alt="충전 완료"></div>
-        </div>
-      </div>
-      <div class="ctrl">
-        <button class="arrow prev" aria-label="이전">‹</button>
-        <div class="dots"></div>
-        <div class="counter"></div>
-        <button class="arrow next" aria-label="다음">›</button>
-      </div>
-    </div>
-      </div>
-    </div>
-  </section>
-        </div>
-    </div>
-  </section>
-<section class="check">
+  <section class="check">
     <div class="sec-head"><h2>결제 전, 이것만 확인해 주세요</h2></div>
     <div class="checkcard">
       <div class="chk"><span class="ck">✓</span><span>광화문D타워 <b>프로모션 참여 매장</b></span></div>
-      <div class="chk"><span class="ck">✓</span><span>네이버페이 <b>머니·포인트 잔액</b>이 충분한지</span></div>
+      <div class="chk"><span class="ck">✓</span><span>네이버페이 <b>머니·포인트 잔액이 결제 금액보다 많은지</b></span></div>
       <div class="chk"><span class="ck">✓</span><span><b>1만 원 이상</b> 결제</span></div>
-      <div class="chk-note">*신용·체크카드 결제는 적립 제외</div>
+      <div class="chk-note">*신용·체크카드 결제는 적립 제외<br>*잔액이 부족하면 결제가 진행되지 않아요. 계산 전에 미리 충전해 주세요.</div>
     </div>
   </section>
 
-  <div class="stores">
+  <div class="stores" id="stores">
     <div class="cap"><span>대상 매장</span></div>
     <h3>광화문D타워 25개 브랜드</h3>
-    <div class="sub2">브랜드를 누르면 네이버 플레이스로 이동해요 · <span>*가나다순</span></div>
+    <div class="sub2">브랜드를 누르면 네이버 플레이스로 이동해요 · 가나다순</div>
     <div class="cat">
       <div class="clabel">다이닝</div>
       <div class="grid">
@@ -450,13 +455,13 @@
         <a class="brand" href="https://naver.me/FFGL6wHk" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-fibreno.jpg" alt="피브레노"></div><div class="bn">피브레노</div></a>
       </div>
     </div>
-
   </div>
 
-  <div class="final-cta">
+  <a href="#pay" class="final-cta">
     <div class="t">광화문D타워에서의 시간,<br><span style="color:var(--green)">네이버페이로 더 값지게.</span></div>
     <div class="s">25개 브랜드에서 결제 금액의 10%를,<br>최대 5만 원까지 돌려받으세요!</div>
-  </div>
+    <div class="cta-btn">결제 방법 보기 →</div>
+  </a>
 
   <footer>
     <div class="tag">광화문D타워 네이버페이 프로모션</div>
@@ -466,6 +471,7 @@
 </div>
 
 <script>
+  // ===== 가로 슬라이드 =====
   document.querySelectorAll('.hcar').forEach(function(car){
     var track=car.querySelector('.track');
     var slides=car.querySelectorAll('.slide');
@@ -490,36 +496,53 @@
     update();
   });
 
-  // 앱 선택 탭 전환
+  // ===== 탭 활성화 (버튼·패널·aria·캐러셀 리셋을 한 곳에서) =====
+  function activate(scope, tab){
+    if(!scope) return;
+    scope.querySelectorAll(':scope > .tabbtns > .tabbtn').forEach(function(b){
+      var on = b.getAttribute('data-tab')===tab;
+      b.classList.toggle('on',on);
+      b.setAttribute('aria-pressed',on);
+    });
+    scope.querySelectorAll(':scope > .tabpanel').forEach(function(pn){
+      pn.classList.toggle('on', pn.getAttribute('data-panel')===tab);
+    });
+    var ap = scope.querySelector(':scope > .tabpanel.on');
+    if(ap) ap.querySelectorAll('.hcar').forEach(function(c){ if(c._reset) c._reset(); });
+  }
+
+  // 탭 버튼 클릭
   document.querySelectorAll('.tabbtn').forEach(function(btn){
     btn.addEventListener('click',function(){
-      var tab=btn.getAttribute('data-tab');
       var scope=btn.closest('.apptabs')||btn.closest('.steptabs')||btn.closest('.gatetabs');
       if(!scope) return;
-      // 전환 전 탭버튼 줄의 화면상 위치 기록
       var btnRow=btn.parentElement;
       var beforeTop=btnRow.getBoundingClientRect().top;
-      scope.querySelectorAll(':scope > .tabbtns > .tabbtn').forEach(function(b){var on=b===btn;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});
-      scope.querySelectorAll(':scope > .tabpanel').forEach(function(pn){pn.classList.toggle('on',pn.getAttribute('data-panel')===tab);});
-      var activePanel=scope.querySelector(':scope > .tabpanel.on');
-      if(activePanel){activePanel.querySelectorAll('.hcar').forEach(function(c){if(c._reset)c._reset();});}
-      // 전환 직후 즉시(애니메이션 없이) 보정 -> 탭버튼 줄 화면 위치 유지
+      activate(scope, btn.getAttribute('data-tab'));
       var afterTop=btnRow.getBoundingClientRect().top;
       window.scrollBy({top: afterTop-beforeTop, behavior:'instant'});
     });
   });
 
+  // STEP 이동 버튼 + '충전 방법 보기' 점프 버튼
   document.querySelectorAll('.step-next').forEach(function(btn){
     btn.addEventListener('click',function(){
-      var target=btn.getAttribute('data-goto');
+      var jump=btn.getAttribute('data-jump');
+      if(jump){
+        var gate=document.querySelector('.gatetabs');
+        activate(gate, jump);
+        var steps=gate.querySelector('.steptabs');
+        activate(steps, 'charge');
+        (steps||gate).scrollIntoView({behavior:'smooth',block:'start'});
+        return;
+      }
       var scope=btn.closest('.steptabs');
-      scope.querySelectorAll(':scope > .tabbtns > .steptab').forEach(function(b){var on=b.getAttribute('data-tab')===target;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});
-      scope.querySelectorAll(':scope > .tabpanel').forEach(function(pn){pn.classList.toggle('on',pn.getAttribute('data-panel')===target);});
+      activate(scope, btn.getAttribute('data-goto'));
       scope.scrollIntoView({behavior:'smooth',block:'start'});
     });
   });
 
-  // 각 경로 슬라이드 제목 앞에 순번 배지
+  // 슬라이드 제목 앞에 순번 배지
   document.querySelectorAll('.hcar').forEach(function(car){
     car.querySelectorAll('.slide .t').forEach(function(t,idx){
       if(t.querySelector('.stepnum')) return;
