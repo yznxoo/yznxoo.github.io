@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>네이버페이 머니·포인트 결제 방법 안내</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquareNeo@1.0/nanumsquareneo.css" rel="stylesheet">
 <style>
-  :root{--green:#03C75A;--green-dk:#00A344;--black:#111111;--white:#FFFFFF;--line:rgba(17,17,17,.12);--soft:rgba(17,17,17,.55);}
+  :root{--green:#03C75A;--black:#111111;--white:#FFFFFF;--line:rgba(17,17,17,.12);--soft:rgba(17,17,17,.55);}
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{font-family:'NanumSquareNeo','Apple SD Gothic Neo',sans-serif;background:var(--white);color:var(--black);line-height:1.62;-webkit-font-smoothing:antialiased;word-break:keep-all;}
@@ -23,21 +24,19 @@
   .hero-cap{display:inline-block;border:1.5px solid rgba(255,255,255,.6);border-radius:22px;padding:7px 18px;font-size:13px;font-weight:800;margin:16px 0 14px;}
   .kicker{font-size:13px;font-weight:800;letter-spacing:.12em;text-align:left;}
   header h1{font-size:28px;font-weight:900;margin-top:11px;line-height:1.3;letter-spacing:-.025em;}
-  header p{font-size:15px;font-weight:500;margin-top:14px;line-height:1.6;}
-  header p b{font-weight:800;}
   .benefit .warn-row{color:var(--black);}
   .benefit .warn-row b{color:#E5484D;font-weight:900;}
   .paytable{margin:24px 16px 0;background:var(--white);border:2px solid var(--green);border-radius:16px;padding:20px 18px;}
   .pt-title{text-align:center;font-size:16px;font-weight:900;margin-bottom:14px;}
-  .pt-title .g{color:var(--green-dk);}
+  .pt-title .g{color:var(--green);}
   .pt-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:12px;overflow:hidden;border:1px solid var(--line);}
   .pt-head{background:var(--black);color:#fff;font-size:13.5px;font-weight:800;text-align:center;padding:11px 8px;}
   .pt-cell{font-size:15px;font-weight:700;text-align:center;padding:13px 8px;border-top:1px solid var(--line);}
-  .pt-cell.g{color:var(--green-dk);font-weight:900;}
+  .pt-cell.g{color:var(--green);font-weight:900;}
   .pt-grid .pt-cell:nth-child(odd){border-right:1px solid var(--line);}
   .pt-note{text-align:center;font-size:12px;color:var(--soft);margin-top:12px;}
   .pt-max{text-align:center;font-size:14px;margin-top:6px;}
-  .pt-max b{color:var(--green-dk);font-weight:900;}
+  .pt-max b{color:var(--green);font-weight:900;}
   .benefit{margin:16px 16px 0;border:2px solid var(--green);border-radius:14px;padding:16px 15px;}
   .benefit .row{display:flex;gap:9px;font-size:15px;font-weight:500;align-items:baseline;}
   .benefit .row+.row{margin-top:6px;}
@@ -46,7 +45,6 @@
 
   section{padding:0 16px;}
   .sec-head{display:flex;align-items:center;gap:11px;margin:28px 0 6px;}
-  .sec-num{flex:0 0 auto;width:33px;height:33px;border-radius:10px;background:var(--green);color:var(--white);font-weight:900;font-size:16px;display:flex;align-items:center;justify-content:center;}
   
   .sec-head h2{font-size:21px;font-weight:900;letter-spacing:-.02em;}
   .sec-desc{font-size:14px;font-weight:500;color:var(--soft);margin:0 2px 16px;}
@@ -84,7 +82,7 @@
   .qs-slide .t{font-size:18.5px;font-weight:900;letter-spacing:-.015em;display:flex;flex-direction:column;align-items:flex-start;gap:9px;}
   .qs-slide .t .stepnum{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:var(--green);color:#fff;font-size:15px;font-weight:900;}
   .qs-slide .d{font-size:15px;font-weight:500;margin-top:7px;line-height:1.6;}
-  .qs-slide .d b{font-weight:800;color:var(--green-dk);}
+  .qs-slide .d b{font-weight:800;color:var(--green);}
   .qs-slide .shot{margin-top:11px;border-radius:14px;overflow:hidden;border:1px solid var(--line);display:flex;justify-content:center;background:var(--white);}
   .qs-slide .shot img{max-height:420px;width:auto;max-width:100%;display:block;}
 
@@ -102,9 +100,7 @@
   .step-next{display:block;width:calc(100% - 4px);margin:18px 2px 2px;padding:15px;border:2px solid var(--green);border-radius:12px;background:var(--white);color:var(--green);font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:.15s;}
   .step-next:active{transform:scale(.98);}
 
-  /* swipe-tip bouncing 화살표 */
   
-  }
   /* 최종 CTA */
   /* 결제 전 확인 CHECK */
   .check{margin-top:8px;}
@@ -123,8 +119,8 @@
   .hcar .track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:12px;padding-right:24px;}
   .hcar .track::-webkit-scrollbar{display:none}
   .hcar .slide{flex:0 0 92%;scroll-snap-align:start;padding:2px 0 0;border-top:none;}
-  .slide .t{padding:0 2px;}
-  .hcar .slide .d{padding:0 2px;}
+  .slide .t{padding:0 12px;}
+  .hcar .slide .d{padding:0 12px;}
   .hcar .ctrl{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px;}
   .hcar .arrow{width:44px;height:44px;border-radius:50%;border:none;background:var(--green);color:#fff;font-size:20px;font-weight:900;box-shadow:0 3px 10px rgba(3,199,90,.3);}
   .hcar .arrow[disabled]{background:var(--line);color:rgba(17,17,17,.3);box-shadow:none;}
@@ -132,7 +128,6 @@
   .hcar .counter{font-size:14px;font-weight:800;color:var(--black);}
   /* 넘김 안내 배지 */
   /* 접이식 안 가로 슬라이드: 좌우 여백 확보 */
-  .slide .t{padding-left:20px;}
 
   .track{display:block;}
   .slide{padding:16px 0 4px;border-top:1px solid var(--line);}
@@ -140,8 +135,8 @@
   .slide .t{font-size:18.5px;font-weight:900;letter-spacing:-.015em;padding:0 12px;display:flex;flex-direction:column;align-items:flex-start;gap:9px;}
   .slide .t .stepnum{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:var(--green);color:#fff;font-size:15px;font-weight:900;}
   .slide .d{font-size:15px;font-weight:500;margin-top:7px;line-height:1.6;min-height:2.6em;padding:0 12px;}
-  .slide .d b{font-weight:800;color:var(--green-dk);}
-  .slide .shot{margin-top:11px;border-radius:14px;overflow:hidden;border:1px solid var(--line);}
+  .slide .d b{font-weight:800;color:var(--green);}
+  .slide .shot{margin:11px 12px 0 12px;border-radius:14px;overflow:hidden;border:1px solid var(--line);}
   .slide .shot{display:flex;justify-content:center;background:var(--white);}
   .slide .shot img{max-height:420px;width:auto;max-width:100%;display:block;}
 
@@ -164,7 +159,6 @@
   .stores .cap{display:flex;justify-content:center;margin-bottom:14px;}
   .stores .cap span{border:1.5px solid rgba(255,255,255,.5);border-radius:20px;padding:6px 16px;font-size:13px;font-weight:800;}
   .stores h3{text-align:center;font-size:23px;font-weight:900;letter-spacing:-.02em;}
-  .stores .sub{text-align:center;font-size:14px;color:rgba(255,255,255,.7);margin-top:8px;font-weight:500;}
   .stores .sub2{text-align:center;font-size:11.5px;color:rgba(255,255,255,.45);margin-top:4px;font-weight:400;}
   .stores .sub2 span{color:rgba(255,255,255,.6);}
   .cat{margin-top:24px;}
@@ -185,11 +179,6 @@
     .rolltrack{animation:none !important;}
     *{scroll-behavior:auto !important;}
   }
-
-  a.final-cta{display:block;text-decoration:none;}
-  .final-cta .cta-btn{display:inline-block;margin-top:16px;background:var(--green);color:#fff;font-size:15px;font-weight:800;padding:13px 28px;border-radius:12px;}
-  .open-app{display:block;text-align:center;background:var(--green);color:#fff;text-decoration:none;font-size:15px;font-weight:800;padding:14px;border-radius:12px;margin:0 2px 16px;-webkit-tap-highlight-color:transparent;}
-  .open-app:active{transform:scale(.98);}
 </style>
 </head>
 <body>
@@ -200,7 +189,7 @@
     <div class="hero-cap">최대 5만 원 혜택</div>
     <h1>방금 그 주문,<br>네이버페이로 결제하면<br><span style="color:var(--green)">10% 즉시 돌려받아요</span></h1>
     <div class="rollwrap">
-      <div class="rolltrack"><div class="rlogo"><img loading="lazy" decoding="async" src="logo-gocheongdam.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-ghmseokgalbi.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-drrobin.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-deokhu.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-melting.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-brooklyn.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-yamaya.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-ontheborder.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-itamae.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-juyu.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-jjilhal.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-chaal.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-tamarind.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-pollys.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-raisondetre.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-susu.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-siopangya.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-indexcaramel.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-colectivo.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-acaibora.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-felt.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-fobi.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-hermann.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-kiwa.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-fibreno.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-gocheongdam.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-ghmseokgalbi.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-drrobin.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-deokhu.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-melting.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-brooklyn.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-yamaya.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-ontheborder.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-itamae.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-juyu.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-jjilhal.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-chaal.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-tamarind.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-pollys.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-raisondetre.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-susu.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-siopangya.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-indexcaramel.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-colectivo.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-acaibora.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-felt.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-fobi.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-hermann.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-kiwa.jpg" alt=""></div><div class="rlogo"><img loading="lazy" decoding="async" src="logo-fibreno.jpg" alt=""></div></div>
+      <div class="rolltrack"><div class="rlogo"><img src="logo-gocheongdam.jpg" alt=""></div><div class="rlogo"><img src="logo-ghmseokgalbi.jpg" alt=""></div><div class="rlogo"><img src="logo-drrobin.jpg" alt=""></div><div class="rlogo"><img src="logo-deokhu.jpg" alt=""></div><div class="rlogo"><img src="logo-melting.jpg" alt=""></div><div class="rlogo"><img src="logo-brooklyn.jpg" alt=""></div><div class="rlogo"><img src="logo-yamaya.jpg" alt=""></div><div class="rlogo"><img src="logo-ontheborder.jpg" alt=""></div><div class="rlogo"><img src="logo-itamae.jpg" alt=""></div><div class="rlogo"><img src="logo-juyu.jpg" alt=""></div><div class="rlogo"><img src="logo-jjilhal.jpg" alt=""></div><div class="rlogo"><img src="logo-chaal.jpg" alt=""></div><div class="rlogo"><img src="logo-tamarind.jpg" alt=""></div><div class="rlogo"><img src="logo-pollys.jpg" alt=""></div><div class="rlogo"><img src="logo-raisondetre.jpg" alt=""></div><div class="rlogo"><img src="logo-susu.jpg" alt=""></div><div class="rlogo"><img src="logo-siopangya.jpg" alt=""></div><div class="rlogo"><img src="logo-indexcaramel.jpg" alt=""></div><div class="rlogo"><img src="logo-colectivo.jpg" alt=""></div><div class="rlogo"><img src="logo-acaibora.jpg" alt=""></div><div class="rlogo"><img src="logo-felt.jpg" alt=""></div><div class="rlogo"><img src="logo-fobi.jpg" alt=""></div><div class="rlogo"><img src="logo-hermann.jpg" alt=""></div><div class="rlogo"><img src="logo-kiwa.jpg" alt=""></div><div class="rlogo"><img src="logo-fibreno.jpg" alt=""></div><div class="rlogo"><img src="logo-gocheongdam.jpg" alt=""></div><div class="rlogo"><img src="logo-ghmseokgalbi.jpg" alt=""></div><div class="rlogo"><img src="logo-drrobin.jpg" alt=""></div><div class="rlogo"><img src="logo-deokhu.jpg" alt=""></div><div class="rlogo"><img src="logo-melting.jpg" alt=""></div><div class="rlogo"><img src="logo-brooklyn.jpg" alt=""></div><div class="rlogo"><img src="logo-yamaya.jpg" alt=""></div><div class="rlogo"><img src="logo-ontheborder.jpg" alt=""></div><div class="rlogo"><img src="logo-itamae.jpg" alt=""></div><div class="rlogo"><img src="logo-juyu.jpg" alt=""></div><div class="rlogo"><img src="logo-jjilhal.jpg" alt=""></div><div class="rlogo"><img src="logo-chaal.jpg" alt=""></div><div class="rlogo"><img src="logo-tamarind.jpg" alt=""></div><div class="rlogo"><img src="logo-pollys.jpg" alt=""></div><div class="rlogo"><img src="logo-raisondetre.jpg" alt=""></div><div class="rlogo"><img src="logo-susu.jpg" alt=""></div><div class="rlogo"><img src="logo-siopangya.jpg" alt=""></div><div class="rlogo"><img src="logo-indexcaramel.jpg" alt=""></div><div class="rlogo"><img src="logo-colectivo.jpg" alt=""></div><div class="rlogo"><img src="logo-acaibora.jpg" alt=""></div><div class="rlogo"><img src="logo-felt.jpg" alt=""></div><div class="rlogo"><img src="logo-fobi.jpg" alt=""></div><div class="rlogo"><img src="logo-hermann.jpg" alt=""></div><div class="rlogo"><img src="logo-kiwa.jpg" alt=""></div><div class="rlogo"><img src="logo-fibreno.jpg" alt=""></div></div>
     </div>
   </header>
 
@@ -215,8 +204,8 @@
     <div class="pt-grid">
       <div class="pt-head">결제 금액</div><div class="pt-head">적립금</div>
       <div class="pt-cell">10,000원</div><div class="pt-cell g">1,000원</div>
-      <div class="pt-cell">55,000원</div><div class="pt-cell g">5,500원</div>
       <div class="pt-cell">100,000원</div><div class="pt-cell g">10,000원</div>
+      <div class="pt-cell">150,000원</div><div class="pt-cell g">10,000원</div>
     </div>
     <div class="pt-note">1회 최대 1만 원 · 기간 내 최대 5회</div>
     <div class="pt-max">최대 혜택을 다 받으면 <b>총 5만 원 적립</b></div>
@@ -226,11 +215,10 @@
   <section class="paygate">
     <div class="sec-head"><h2>결제 방법</h2></div>
     <p class="pick">네이버페이 머니·포인트가 있으신가요?</p>
-    <a href="https://new-m.pay.naver.com/onoffline" class="open-app" target="_blank" rel="noopener">네이버페이 앱 열기 →</a>
     <div class="gatetabs">
-      <div class="tabbtns" role="tablist">
-        <button class="tabbtn gatetab on" data-tab="ready" role="tab" aria-selected="true">있어요<br><span class="sub">바로 결제</span></button>
-        <button class="tabbtn gatetab" data-tab="new" role="tab" aria-selected="false">없어요<br><span class="sub">지금 등록</span></button>
+      <div class="tabbtns">
+        <button class="tabbtn gatetab on" data-tab="ready" aria-pressed="true">있어요<br><span class="sub">바로 결제</span></button>
+        <button class="tabbtn gatetab" data-tab="new" aria-pressed="false">없어요<br><span class="sub">지금 등록</span></button>
       </div>
       <div class="tabpanel on" data-panel="ready">
         <div class="sec-head" style="margin-top:8px"><h2>이렇게 결제하세요</h2></div>
@@ -258,9 +246,9 @@
     <p class="pick">쓰시는 앱을 골라 시작하세요.</p>
 
     <div class="apptabs">
-      <div class="tabbtns" role="tablist">
-        <button class="tabbtn on" data-tab="pay" role="tab" aria-selected="true"><span class="app">P</span>네이버페이 앱</button>
-        <button class="tabbtn" data-tab="naver" role="tab" aria-selected="false"><span class="app dk">N</span>네이버 앱</button>
+      <div class="tabbtns">
+        <button class="tabbtn on" data-tab="pay" aria-pressed="true"><span class="app">P</span>네이버페이 앱</button>
+        <button class="tabbtn" data-tab="naver" aria-pressed="false"><span class="app dk">N</span>네이버 앱</button>
       </div>
       <div class="tabpanel on" data-panel="pay">
         <div class="carousel hcar" data-car="pay">
@@ -316,9 +304,9 @@
   <section>
     <div class="sec-head"><h2>네이버페이로 결제해볼까요?</h2></div>
     <div class="steptabs">
-      <div class="tabbtns" role="tablist">
-        <button class="tabbtn steptab on" data-tab="signup" role="tab" aria-selected="true"><span class="stepno">STEP 1</span>계좌 등록</button>
-        <button class="tabbtn steptab" data-tab="charge" role="tab" aria-selected="false"><span class="stepno">STEP 2</span>머니 충전</button>
+      <div class="tabbtns">
+        <button class="tabbtn steptab on" data-tab="signup" aria-pressed="true"><span class="stepno">STEP 1</span>계좌 등록</button>
+        <button class="tabbtn steptab" data-tab="charge" aria-pressed="false"><span class="stepno">STEP 2</span>머니 충전</button>
       </div>
       <div class="tabpanel on" data-panel="signup">
         <p class="sec-desc">처음 한 번만 등록하면 계속 쓸 수 있어요.</p>
@@ -425,51 +413,50 @@
     <div class="cat">
       <div class="clabel">다이닝</div>
       <div class="grid">
-        <a class="brand" href="https://naver.me/Fy2FHmOk" target="_blank" rel="noopener"><div class="badge"><img src="logo-gocheongdam.jpg" alt="고청담"></div><div class="bn">고청담</div></a>
-        <a class="brand" href="https://naver.me/xKERdeQY" target="_blank" rel="noopener"><div class="badge"><img src="logo-ghmseokgalbi.jpg" alt="광화문석갈비"></div><div class="bn">광화문석갈비</div></a>
-        <a class="brand" href="https://naver.me/x1VvdZpE" target="_blank" rel="noopener"><div class="badge"><img src="logo-drrobin.jpg" alt="닥터로빈"></div><div class="bn">닥터로빈</div></a>
-        <a class="brand" href="https://naver.me/FlZnlrC7" target="_blank" rel="noopener"><div class="badge"><img src="logo-deokhu.jpg" alt="덕후선생"></div><div class="bn">덕후선생</div></a>
-        <a class="brand" href="https://naver.me/G386fZEA" target="_blank" rel="noopener"><div class="badge"><img src="logo-melting.jpg" alt="멜팅샵 & 퍼프룸"></div><div class="bn">멜팅샵 & 퍼프룸</div></a>
-        <a class="brand" href="https://naver.me/GSDAxDeo" target="_blank" rel="noopener"><div class="badge"><img src="logo-brooklyn.jpg" alt="브루클린더버거조인트"></div><div class="bn">브루클린더버거조인트</div></a>
-        <a class="brand" href="https://naver.me/F74VaLBY" target="_blank" rel="noopener"><div class="badge"><img src="logo-yamaya.jpg" alt="야마야"></div><div class="bn">야마야</div></a>
-        <a class="brand" href="https://naver.me/xMjK7FX4" target="_blank" rel="noopener"><div class="badge"><img src="logo-ontheborder.jpg" alt="온더보더"></div><div class="bn">온더보더</div></a>
-        <a class="brand" href="https://naver.me/xSFWSavB" target="_blank" rel="noopener"><div class="badge"><img src="logo-itamae.jpg" alt="이타마에스시"></div><div class="bn">이타마에스시</div></a>
-        <a class="brand" href="https://naver.me/GOPeBOYr" target="_blank" rel="noopener"><div class="badge"><img src="logo-juyu.jpg" alt="주유별장"></div><div class="bn">주유별장</div></a>
-        <a class="brand" href="https://naver.me/5UEcZXmP" target="_blank" rel="noopener"><div class="badge"><img src="logo-jjilhal.jpg" alt="질할브로스"></div><div class="bn">질할브로스</div></a>
-        <a class="brand" href="https://naver.me/FEUpxmjl" target="_blank" rel="noopener"><div class="badge"><img src="logo-chaal.jpg" alt="차알"></div><div class="bn">차알</div></a>
-        <a class="brand" href="https://naver.me/5yPnRsx5" target="_blank" rel="noopener"><div class="badge"><img src="logo-tamarind.jpg" alt="타마린드"></div><div class="bn">타마린드</div></a>
-        <a class="brand" href="https://naver.me/xxY2yb28" target="_blank" rel="noopener"><div class="badge"><img src="logo-pollys.jpg" alt="폴리스"></div><div class="bn">폴리스</div></a>
+        <a class="brand" href="https://naver.me/Fy2FHmOk" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-gocheongdam.jpg" alt="고청담"></div><div class="bn">고청담</div></a>
+        <a class="brand" href="https://naver.me/xKERdeQY" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-ghmseokgalbi.jpg" alt="광화문석갈비"></div><div class="bn">광화문석갈비</div></a>
+        <a class="brand" href="https://naver.me/x1VvdZpE" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-drrobin.jpg" alt="닥터로빈"></div><div class="bn">닥터로빈</div></a>
+        <a class="brand" href="https://naver.me/FlZnlrC7" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-deokhu.jpg" alt="덕후선생"></div><div class="bn">덕후선생</div></a>
+        <a class="brand" href="https://naver.me/G386fZEA" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-melting.jpg" alt="멜팅샵 & 퍼프룸"></div><div class="bn">멜팅샵 & 퍼프룸</div></a>
+        <a class="brand" href="https://naver.me/GSDAxDeo" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-brooklyn.jpg" alt="브루클린더버거조인트"></div><div class="bn">브루클린더버거조인트</div></a>
+        <a class="brand" href="https://naver.me/F74VaLBY" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-yamaya.jpg" alt="야마야"></div><div class="bn">야마야</div></a>
+        <a class="brand" href="https://naver.me/xMjK7FX4" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-ontheborder.jpg" alt="온더보더"></div><div class="bn">온더보더</div></a>
+        <a class="brand" href="https://naver.me/xSFWSavB" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-itamae.jpg" alt="이타마에스시"></div><div class="bn">이타마에스시</div></a>
+        <a class="brand" href="https://naver.me/GOPeBOYr" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-juyu.jpg" alt="주유별장"></div><div class="bn">주유별장</div></a>
+        <a class="brand" href="https://naver.me/5UEcZXmP" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-jjilhal.jpg" alt="질할브로스"></div><div class="bn">질할브로스</div></a>
+        <a class="brand" href="https://naver.me/FEUpxmjl" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-chaal.jpg" alt="차알"></div><div class="bn">차알</div></a>
+        <a class="brand" href="https://naver.me/5yPnRsx5" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-tamarind.jpg" alt="타마린드"></div><div class="bn">타마린드</div></a>
+        <a class="brand" href="https://naver.me/xxY2yb28" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-pollys.jpg" alt="폴리스"></div><div class="bn">폴리스</div></a>
       </div>
     </div>
     <div class="cat">
       <div class="clabel">카페 · 디저트</div>
       <div class="grid">
-        <a class="brand" href="https://naver.me/GpCTgXQX" target="_blank" rel="noopener"><div class="badge"><img src="logo-raisondetre.jpg" alt="레종데트르"></div><div class="bn">레종데트르</div></a>
-        <a class="brand" href="https://naver.me/IItc8tYB" target="_blank" rel="noopener"><div class="badge"><img src="logo-susu.jpg" alt="수수커피"></div><div class="bn">수수커피</div></a>
-        <a class="brand" href="https://naver.me/FpxlSHfW" target="_blank" rel="noopener"><div class="badge"><img src="logo-siopangya.jpg" alt="시오팡야"></div><div class="bn">시오팡야</div></a>
-        <a class="brand" href="https://naver.me/5FmSya4d" target="_blank" rel="noopener"><div class="badge"><img src="logo-indexcaramel.jpg" alt="인덱스카라멜"></div><div class="bn">인덱스카라멜</div></a>
-        <a class="brand" href="https://naver.me/xJiBeP3Y" target="_blank" rel="noopener"><div class="badge"><img src="logo-colectivo.jpg" alt="콜렉티보"></div><div class="bn">콜렉티보</div></a>
-        <a class="brand" href="https://naver.me/xcAPDBg2" target="_blank" rel="noopener"><div class="badge"><img src="logo-acaibora.jpg" alt="클럽아사이보라"></div><div class="bn">클럽아사이보라</div></a>
-        <a class="brand" href="https://naver.me/Gctrkvw1" target="_blank" rel="noopener"><div class="badge"><img src="logo-felt.jpg" alt="펠트커피"></div><div class="bn">펠트커피</div></a>
-        <a class="brand" href="https://naver.me/5A3pOkqr" target="_blank" rel="noopener"><div class="badge"><img src="logo-fobi.jpg" alt="포비"></div><div class="bn">포비</div></a>
-        <a class="brand" href="https://naver.me/5k7GngSv" target="_blank" rel="noopener"><div class="badge"><img src="logo-hermann.jpg" alt="헤르만의정원"></div><div class="bn">헤르만의정원</div></a>
+        <a class="brand" href="https://naver.me/GpCTgXQX" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-raisondetre.jpg" alt="레종데트르"></div><div class="bn">레종데트르</div></a>
+        <a class="brand" href="https://naver.me/IItc8tYB" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-susu.jpg" alt="수수커피"></div><div class="bn">수수커피</div></a>
+        <a class="brand" href="https://naver.me/FpxlSHfW" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-siopangya.jpg" alt="시오팡야"></div><div class="bn">시오팡야</div></a>
+        <a class="brand" href="https://naver.me/5FmSya4d" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-indexcaramel.jpg" alt="인덱스카라멜"></div><div class="bn">인덱스카라멜</div></a>
+        <a class="brand" href="https://naver.me/xJiBeP3Y" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-colectivo.jpg" alt="콜렉티보"></div><div class="bn">콜렉티보</div></a>
+        <a class="brand" href="https://naver.me/xcAPDBg2" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-acaibora.jpg" alt="클럽아사이보라"></div><div class="bn">클럽아사이보라</div></a>
+        <a class="brand" href="https://naver.me/Gctrkvw1" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-felt.jpg" alt="펠트커피"></div><div class="bn">펠트커피</div></a>
+        <a class="brand" href="https://naver.me/5A3pOkqr" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-fobi.jpg" alt="포비"></div><div class="bn">포비</div></a>
+        <a class="brand" href="https://naver.me/5k7GngSv" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-hermann.jpg" alt="헤르만의정원"></div><div class="bn">헤르만의정원</div></a>
       </div>
     </div>
     <div class="cat">
       <div class="clabel">리테일</div>
       <div class="grid">
-        <a class="brand" href="https://naver.me/IItGGy8M" target="_blank" rel="noopener"><div class="badge"><img src="logo-kiwa.jpg" alt="키와 KIWA"></div><div class="bn">키와 KIWA</div></a>
-        <a class="brand" href="https://naver.me/FFGL6wHk" target="_blank" rel="noopener"><div class="badge"><img src="logo-fibreno.jpg" alt="피브레노"></div><div class="bn">피브레노</div></a>
+        <a class="brand" href="https://naver.me/IItGGy8M" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-kiwa.jpg" alt="키와 KIWA"></div><div class="bn">키와 KIWA</div></a>
+        <a class="brand" href="https://naver.me/FFGL6wHk" target="_blank" rel="noopener"><div class="badge"><img loading="lazy" decoding="async" src="logo-fibreno.jpg" alt="피브레노"></div><div class="bn">피브레노</div></a>
       </div>
     </div>
 
   </div>
 
-  <a href="https://new-m.pay.naver.com/onoffline" class="final-cta" target="_blank" rel="noopener">
+  <div class="final-cta">
     <div class="t">광화문D타워에서의 시간,<br><span style="color:var(--green)">네이버페이로 더 값지게.</span></div>
     <div class="s">25개 브랜드에서 결제 금액의 10%를,<br>최대 5만 원까지 돌려받으세요!</div>
-    <div class="cta-btn">네이버페이 앱 열기 →</div>
-  </a>
+  </div>
 
   <footer>
     <div class="tag">광화문D타워 네이버페이 프로모션</div>
@@ -495,6 +482,7 @@
       prev.disabled=(cur===0); next.disabled=(cur===n-1);
     }
     function goto(i){cur=Math.max(0,Math.min(n-1,i));track.scrollTo({left:slides[cur].offsetLeft-track.offsetLeft,behavior:'smooth'});update();}
+    car._reset=function(){cur=0;track.scrollLeft=0;update();};
     prev.addEventListener('click',function(){goto(cur-1)});
     next.addEventListener('click',function(){goto(cur+1)});
     var t;
@@ -511,8 +499,10 @@
       // 전환 전 탭버튼 줄의 화면상 위치 기록
       var btnRow=btn.parentElement;
       var beforeTop=btnRow.getBoundingClientRect().top;
-      scope.querySelectorAll(':scope > .tabbtns > .tabbtn').forEach(function(b){b.classList.toggle('on',b===btn);});
+      scope.querySelectorAll(':scope > .tabbtns > .tabbtn').forEach(function(b){var on=b===btn;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});
       scope.querySelectorAll(':scope > .tabpanel').forEach(function(pn){pn.classList.toggle('on',pn.getAttribute('data-panel')===tab);});
+      var activePanel=scope.querySelector(':scope > .tabpanel.on');
+      if(activePanel){activePanel.querySelectorAll('.hcar').forEach(function(c){if(c._reset)c._reset();});}
       // 전환 직후 즉시(애니메이션 없이) 보정 -> 탭버튼 줄 화면 위치 유지
       var afterTop=btnRow.getBoundingClientRect().top;
       window.scrollBy({top: afterTop-beforeTop, behavior:'instant'});
@@ -523,7 +513,7 @@
     btn.addEventListener('click',function(){
       var target=btn.getAttribute('data-goto');
       var scope=btn.closest('.steptabs');
-      scope.querySelectorAll(':scope > .tabbtns > .steptab').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-tab')===target);});
+      scope.querySelectorAll(':scope > .tabbtns > .steptab').forEach(function(b){var on=b.getAttribute('data-tab')===target;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});
       scope.querySelectorAll(':scope > .tabpanel').forEach(function(pn){pn.classList.toggle('on',pn.getAttribute('data-panel')===target);});
       scope.scrollIntoView({behavior:'smooth',block:'start'});
     });
