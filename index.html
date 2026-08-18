@@ -74,10 +74,6 @@
   .gatetab{flex-direction:column;gap:3px;padding:14px 8px;line-height:1.3;}
   .gatetab .sub{font-size:12px;font-weight:700;color:var(--soft);}
   .gatetab.on .sub{color:var(--black);}
-  .steptabs{margin-top:2px;}
-  .steptab{flex-direction:column;gap:3px;padding:12px 8px;border:2px solid var(--line);}
-  .steptab .stepno{font-size:11.5px;font-weight:900;color:var(--soft);letter-spacing:.03em;}
-  .steptab.on .stepno{color:var(--black);}
 
   /* 바로 결제 (3스텝) */
   .quickpay{margin-top:4px;background:var(--white);border:2px solid var(--green);border-radius:16px;padding:22px 18px;}
@@ -90,12 +86,9 @@
   .qs-slide .shot img{max-height:420px;width:auto;max-width:100%;display:block;}
   .stepnum{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;background:var(--green);color:var(--black);font-size:15px;font-weight:900;flex:0 0 auto;}
 
-  /* 잔액 부족 경고 */
-  .alert{display:flex;gap:9px;align-items:flex-start;margin-top:10px;padding:12px 13px;border-radius:11px;background:rgba(196,38,43,.07);border:1.5px solid rgba(196,38,43,.35);font-size:14px;font-weight:700;line-height:1.5;color:var(--black);}
-  .alert .ico{flex:0 0 auto;width:20px;height:20px;border-radius:50%;background:#C4262B;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;margin-top:1px;}
-
-  .step-next{display:block;width:calc(100% - 4px);margin:18px 2px 2px;padding:15px;border:none;border-radius:12px;background:var(--green);color:var(--black);font-family:inherit;font-size:15px;font-weight:900;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:.15s;}
-  .step-next:active{transform:scale(.98);}
+  /* 자동 충전 안내 박스 */
+  .note{display:flex;gap:9px;align-items:flex-start;margin-top:10px;padding:12px 13px;border-radius:11px;background:var(--green-soft);border:1.5px solid var(--green);font-size:14px;font-weight:700;line-height:1.5;color:var(--black);}
+  .note .ico{flex:0 0 auto;width:20px;height:20px;border-radius:50%;background:var(--green);color:var(--black);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;margin-top:1px;}
 
   /* 가로 슬라이드 */
   .carousel{margin-top:4px;}
@@ -196,7 +189,7 @@
   <!-- 결제 방법: 갈림길 분기 -->
   <section class="paygate">
     <div class="sec-head"><h2>결제 방법</h2></div>
-    <p class="pick">네이버페이 머니·포인트가 있으신가요?</p>
+    <p class="pick">네이버페이에 계좌가 연결되어 있나요?</p>
     <div class="gatetabs">
       <div class="tabbtns">
         <button class="tabbtn gatetab on" data-tab="ready" aria-pressed="true">있어요<br><span class="sub">바로 결제</span></button>
@@ -211,9 +204,9 @@
             <div class="shot"><img loading="lazy" decoding="async" src="quick-qr.jpg" alt="현장결제 화면"></div>
           </div>
           <div class="qs-slide">
-            <div class="t"><span class="stepnum">2</span>‘포인트·머니’와 잔액 확인</div>
+            <div class="t"><span class="stepnum">2</span>결제 수단이 ‘포인트·머니’인지</div>
             <div class="d">카드로 되어 있으면 <b>‘변경’</b>을 눌러 바꿔요.</div>
-            <div class="alert"><span class="ico">!</span><span>잔액이 결제 금액보다 적으면 결제가 안 돼요.</span></div>
+            <div class="note"><span class="ico">i</span><span>잔액이 모자라도 괜찮아요.<br>등록한 계좌에서 <b>1만 원 단위로 자동 충전</b>돼요.</span></div>
             <div class="shot"><img loading="lazy" decoding="async" src="quick-card.jpg" alt="결제 수단 확인 화면"></div>
           </div>
           <div class="qs-slide">
@@ -221,7 +214,6 @@
             <div class="d"><b>네이버페이로 결제</b>한다고 말한 뒤,<br>앞쪽 단말기 카메라에 QR을 비춰요.</div>
           </div>
         </div>
-        <button class="step-next" data-jump="new">잔액이 부족한가요? 충전 방법 보기 →</button>
       </div>
 
       <div class="tabpanel" data-panel="new">
@@ -235,7 +227,7 @@
               <button class="tabbtn" data-tab="naver" aria-pressed="false"><span class="app dk">N</span>네이버 앱</button>
             </div>
             <div class="tabpanel on" data-panel="pay">
-              <div class="carousel hcar" data-car="pay">
+              <div class="carousel hcar">
                 <div class="track">
                   <div class="slide">
                     <div class="t">잔액(금액) 누르기</div>
@@ -257,7 +249,7 @@
               </div>
             </div>
             <div class="tabpanel" data-panel="naver">
-              <div class="carousel hcar" data-car="naver">
+              <div class="carousel hcar">
                 <div class="track">
                   <div class="slide">
                     <div class="t">pay 아이콘 누르기</div>
@@ -287,18 +279,11 @@
           <div class="merge"><span>여기서부터 두 방법 모두 같아요</span></div>
         </section>
 
-        <!-- 계좌 등록 · 머니 충전 -->
+        <!-- 계좌 등록 (공통) -->
         <section>
-          <div class="sec-head"><h2>네이버페이로 결제해볼까요?</h2></div>
-          <div class="steptabs">
-            <div class="tabbtns">
-              <button class="tabbtn steptab on" data-tab="signup" aria-pressed="true"><span class="stepno">STEP 1</span>계좌 등록</button>
-              <button class="tabbtn steptab" data-tab="charge" aria-pressed="false"><span class="stepno">STEP 2</span>머니 충전</button>
-            </div>
-
-            <div class="tabpanel on" data-panel="signup">
-              <p class="sec-desc">처음 한 번만 등록하면 계속 쓸 수 있어요.<br>약 3분 걸리고, 중간에 ARS 전화 인증이 있어요.</p>
-              <div class="carousel hcar" data-car="signup">
+          <div class="sec-head"><h2>계좌만 등록하면 끝!</h2></div>
+          <p class="sec-desc">처음 한 번만 등록하면 계속 쓸 수 있어요.<br>약 3분 걸리고, 중간에 ARS 전화 인증이 있어요.</p>
+              <div class="carousel hcar">
                 <div class="track">
                   <div class="slide">
                     <div class="t">약관 동의</div>
@@ -343,48 +328,7 @@
                   <button class="arrow next" aria-label="다음 단계">›</button>
                 </div>
               </div>
-              <button class="step-next" data-goto="charge">머니 충전하러 가기 →</button>
-            </div>
-
-            <div class="tabpanel" data-panel="charge">
-              <p class="sec-desc">등록한 계좌에서 결제할 만큼 머니를 채워요.</p>
-              <div class="carousel hcar" data-car="charge">
-                <div class="track">
-                  <div class="slide">
-                    <div class="t">잔액(금액) 누르기</div>
-                    <div class="d"><b>QR 아래</b>에 있어요.</div>
-                    <div class="shot"><img loading="lazy" decoding="async" src="charge-01.jpg" alt="잔액 누르기"></div>
-                  </div>
-                  <div class="slide">
-                    <div class="t">머니 잔액 누르기</div>
-                    <div class="d"></div>
-                    <div class="shot"><img loading="lazy" decoding="async" src="charge-02.jpg" alt="머니 잔액"></div>
-                  </div>
-                  <div class="slide">
-                    <div class="t">충전 누르기</div>
-                    <div class="d"></div>
-                    <div class="shot"><img loading="lazy" decoding="async" src="charge-03.jpg" alt="충전 누르기"></div>
-                  </div>
-                  <div class="slide">
-                    <div class="t">금액 입력하고 충전</div>
-                    <div class="d">결제할 금액보다 <b>넉넉히</b>.<br>남은 머니는 다음에 그대로 써요.</div>
-                    <div class="shot"><img loading="lazy" decoding="async" src="charge-04.jpg" alt="금액 입력"></div>
-                  </div>
-                  <div class="slide">
-                    <div class="t">충전 완료, 준비 끝!</div>
-                    <div class="d">이제 <b>머니로 결제</b>하면 10% 적립!</div>
-                    <div class="shot"><img loading="lazy" decoding="async" src="charge-05.jpg" alt="충전 완료"></div>
-                  </div>
-                </div>
-                <div class="ctrl">
-                  <button class="arrow prev" aria-label="이전 단계">‹</button>
-                  <div class="dots"></div>
-                  <div class="counter"></div>
-                  <button class="arrow next" aria-label="다음 단계">›</button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="note"><span class="ico">i</span><span>충전은 따로 안 해도 돼요.<br>결제할 때 <b>1만 원 단위로 자동 충전</b>돼요.</span></div>
         </section>
       </div>
     </div>
@@ -394,9 +338,9 @@
     <div class="sec-head"><h2>결제 전, 이것만 확인해 주세요</h2></div>
     <div class="checkcard">
       <div class="chk"><span class="ck">✓</span><span>광화문D타워 <b>프로모션 참여 매장</b></span></div>
-      <div class="chk"><span class="ck">✓</span><span>네이버페이 <b>머니·포인트 잔액이 결제 금액보다 많은지</b></span></div>
+      <div class="chk"><span class="ck">✓</span><span>결제 수단이 <b>‘포인트·머니’</b>로 되어 있는지</span></div>
       <div class="chk"><span class="ck">✓</span><span><b>1만 원 이상</b> 결제</span></div>
-      <div class="chk-note">*신용·체크카드 결제는 적립 제외<br>*잔액이 부족하면 결제가 진행되지 않으니 계산 전에 미리 충전해 주세요.</div>
+      <div class="chk-note">*신용·체크카드 결제는 적립 제외<br>*머니 잔액이 부족하면 등록한 계좌에서 1만 원 단위로 자동 충전됩니다.</div>
     </div>
   </section>
 
@@ -502,31 +446,13 @@
   // 탭 버튼 클릭
   document.querySelectorAll('.tabbtn').forEach(function(btn){
     btn.addEventListener('click',function(){
-      var scope=btn.closest('.apptabs')||btn.closest('.steptabs')||btn.closest('.gatetabs');
+      var scope=btn.closest('.apptabs')||btn.closest('.gatetabs');
       if(!scope) return;
       var btnRow=btn.parentElement;
       var beforeTop=btnRow.getBoundingClientRect().top;
       activate(scope, btn.getAttribute('data-tab'));
       var afterTop=btnRow.getBoundingClientRect().top;
       window.scrollBy({top: afterTop-beforeTop, behavior:'instant'});
-    });
-  });
-
-  // STEP 이동 버튼 + '충전 방법 보기' 점프 버튼
-  document.querySelectorAll('.step-next').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      var jump=btn.getAttribute('data-jump');
-      if(jump){
-        var gate=document.querySelector('.gatetabs');
-        activate(gate, jump);
-        var steps=gate.querySelector('.steptabs');
-        activate(steps, 'charge');
-        (steps||gate).scrollIntoView({behavior:'smooth',block:'start'});
-        return;
-      }
-      var scope=btn.closest('.steptabs');
-      activate(scope, btn.getAttribute('data-goto'));
-      scope.scrollIntoView({behavior:'smooth',block:'start'});
     });
   });
 
